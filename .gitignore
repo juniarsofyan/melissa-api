@@ -1,0 +1,6 @@
+/vendor/
+/logs/*
+/public/assets/*
+/public/assets/img/*
+/public/assets/
+!/logs/README.md
