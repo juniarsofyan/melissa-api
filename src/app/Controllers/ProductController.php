@@ -15,7 +15,7 @@ class ProductController
         $this->db = $db;
     }
 
-    public function get(Request $request, Response $response, array $args)
+    /* public function get(Request $request, Response $response, array $args)
     {
         $sql = "SELECT 
                     brg.kode_barang, 
@@ -55,6 +55,48 @@ class ProductController
         }
 
         return $response->withJson(["status" => "failed", "data" => "0"], 200);
+    } */
+
+    public function index(Request $request, Response $response, array $args)
+    {
+        $category = $args["category"];
+        $limit = $args["limit"];
+        $offset = $args["offset"];
+
+        $sql = "SELECT 
+                    brg.kode_barang, 
+                    brg.nama, 
+                    brg.berat, 
+                    brg.h_member AS harga, 
+                    IFNULL(brg.h_member - (brg.h_member * (brg.diskon / 100)), 0) AS harga_diskon,
+                    IFNULL(brg.diskon, 0) as diskon,
+                    brg.pic,
+                    tipe_kulit,
+                    unit
+                FROM cn_barang brg
+                WHERE 
+                    kode_barang NOT IN (
+                        SELECT kode_barang 
+                        FROM cn_barang
+                        WHERE kode_barang BETWEEN 'SK005' AND 'SK024'
+                    )
+                    AND brg.h_member > 0
+                    AND brg.cat = 0
+                    AND jenis = :category
+                    LIMIT :limit OFFSET :offset";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':category', $category, \PDO::PARAM_STR);
+        $stmt->bindValue(':limit', (int)$limit, \PDO::PARAM_INT);
+        $stmt->bindValue(':offset', (int)$offset, \PDO::PARAM_INT);
+        $stmt->execute();
+        
+        if ($stmt->rowCount() > 0) {
+            $result = $stmt->fetchAll();
+            return $response->withJson(["status" => "success", "data" => $result], 200);
+        } else {
+            return $response->withJson(["status" => "success", "data" => null], 200);
+        }
     }
 
     public function search(Request $request, Response $response, array $args)

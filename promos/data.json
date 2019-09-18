@@ -1,887 +1,335 @@
 {
     "rules": [{
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88008",
-            "h_member": 317000,
-            "diskon": 5,
-            "harga_diskon": 302000,
-            "vc": 208000
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88018",
-            "h_member": 328000,
-            "diskon": 10,
-            "harga_diskon": 296000,
-            "vc": 246000
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88019",
-            "h_member": 328000,
-            "diskon": 10,
-            "harga_diskon": 296000,
-            "vc": 246000
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88023",
-            "h_member": 328000,
-            "diskon": 10,
-            "harga_diskon": 296000,
-            "vc": 246000
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88059",
-            "h_member": 408000,
-            "diskon": 10,
-            "harga_diskon": 368000,
-            "vc": 306000
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88115",
-            "h_member": 328000,
-            "diskon": 10,
-            "harga_diskon": 296000,
-            "vc": 246000
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88052",
-            "h_member": 328000,
-            "diskon": 10,
-            "harga_diskon": 296000,
-            "vc": 246000
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88053",
-            "h_member": 328000,
-            "diskon": 10,
-            "harga_diskon": 296000,
-            "vc": 246000
+            "promo_type": "REGULAR",
+            "period": "2015-09-16 - 2019-09-30",
+            "kode_barang": "07002",
+            "h_member": 246000,
+            "diskon": 50,
+            "harga_diskon": 123000,
+            "vc": 76000,
+            "promo_caption": "MID-MONTH PROMO! | 50% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2015-09-16 - 2019-09-30",
+            "kode_barang": "07004",
+            "h_member": 199000,
+            "diskon": 25,
+            "harga_diskon": 150000,
+            "vc": 110000,
+            "promo_caption": "MID-MONTH PROMO! | 25% OFF"
         },
 
         {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88008",
+            "promo_type": "REGULAR",
+            "period": "2015-09-16 - 2019-09-30",
+            "join_date_clause": "before",
+            "join_date_range": "2015-09-16",
+            "kode_barang": "88146",
             "h_member": 317000,
-            "diskon": 5,
-            "harga_diskon": 302000,
-            "vc": 208000
+            "diskon": 15,
+            "harga_diskon": 270000,
+            "vc": 214000,
+            "promo_caption": "SERIES PROMO | 15% OFF"
         }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88018",
+            "promo_type": "REGULAR",
+            "period": "2015-09-16 - 2019-09-30",
+            "join_date_clause": "before",
+            "join_date_range": "2015-09-16",
+            "kode_barang": "88004",
+            "h_member": 317000,
+            "diskon": 15,
+            "harga_diskon": 270000,
+            "vc": 214000,
+            "promo_caption": "SERIES PROMO | 15% OFF"
+        }, {
+            "promo_type": "REGULAR",
+            "period": "2015-09-16 - 2019-09-30",
+            "join_date_clause": "before",
+            "join_date_range": "2015-09-16",
+            "kode_barang": "88153",
+            "h_member": 317000,
+            "diskon": 15,
+            "harga_diskon": 270000,
+            "vc": 214000,
+            "promo_caption": "SERIES PROMO | 15% OFF"
+        }, {
+            "promo_type": "REGULAR",
+            "period": "2015-09-16 - 2019-09-30",
+            "join_date_clause": "before",
+            "join_date_range": "2015-09-16",
+            "kode_barang": "88055",
+            "h_member": 317000,
+            "diskon": 15,
+            "harga_diskon": 270000,
+            "vc": 192000,
+            "promo_caption": "SERIES PROMO | 15% OFF"
+        }, {
+            "promo_type": "REGULAR",
+            "period": "2015-09-16 - 2019-09-30",
+            "join_date_clause": "before",
+            "join_date_range": "2015-09-16",
+            "kode_barang": "88011",
             "h_member": 328000,
-            "diskon": 20,
-            "harga_diskon": 263000,
-            "vc": 202000
+            "diskon": 15,
+            "harga_diskon": 279000,
+            "vc": 221000,
+            "promo_caption": "SERIES PROMO | 15% OFF"
         }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88019",
+            "promo_type": "REGULAR",
+            "period": "2015-09-16 - 2019-09-30",
+            "join_date_clause": "before",
+            "join_date_range": "2015-09-16",
+            "kode_barang": "88015",
             "h_member": 328000,
-            "diskon": 20,
-            "harga_diskon": 263000,
-            "vc": 202000
+            "diskon": 15,
+            "harga_diskon": 279000,
+            "vc": 221000,
+            "promo_caption": "SERIES PROMO | 15% OFF"
         }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88023",
-            "h_member": 328000,
-            "diskon": 20,
-            "harga_diskon": 263000,
-            "vc": 202000
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88059",
+            "promo_type": "REGULAR",
+            "period": "2015-09-16 - 2019-09-30",
+            "join_date_clause": "before",
+            "join_date_range": "2015-09-16",
+            "kode_barang": "88054",
             "h_member": 408000,
-            "diskon": 20,
-            "harga_diskon": 327000,
-            "vc": 251000
+            "diskon": 15,
+            "harga_diskon": 347000,
+            "vc": 223000,
+            "promo_caption": "SERIES PROMO | 15% OFF"
         }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88115",
+            "promo_type": "REGULAR",
+            "period": "2015-09-16 - 2019-09-30",
+            "join_date_clause": "before",
+            "join_date_range": "2015-09-16",
+            "kode_barang": "88027",
             "h_member": 328000,
-            "diskon": 20,
-            "harga_diskon": 263000,
-            "vc": 202000
+            "diskon": 15,
+            "harga_diskon": 279000,
+            "vc": 180000,
+            "promo_caption": "SERIES PROMO | 15% OFF"
         }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88052",
+            "promo_type": "REGULAR",
+            "period": "2015-09-16 - 2019-09-30",
+            "join_date_clause": "before",
+            "join_date_range": "2015-09-16",
+            "kode_barang": "88033",
             "h_member": 328000,
-            "diskon": 20,
-            "harga_diskon": 263000,
-            "vc": 202000
+            "diskon": 15,
+            "harga_diskon": 279000,
+            "vc": 221000,
+            "promo_caption": "SERIES PROMO | 15% OFF"
         }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88053",
+            "promo_type": "REGULAR",
+            "period": "2015-09-16 - 2019-09-30",
+            "join_date_clause": "before",
+            "join_date_range": "2015-09-16",
+            "kode_barang": "88034",
             "h_member": 328000,
-            "diskon": 20,
-            "harga_diskon": 263000,
-            "vc": 202000
+            "diskon": 15,
+            "harga_diskon": 279000,
+            "vc": 180000,
+            "promo_caption": "SERIES PROMO | 15% OFF"
         },
 
         {
-            "period": "2019-07-16 - 2019-07-31",
-            "minimum_purchase": 1000000,
-            "free_items": [
-                "8800A",
-                "8800B",
-                "8800C",
-                "8800D",
-                "8800E",
-                "8800F"
+            "promo_type": "REGULAR",
+            "period": "2015-09-16 - 2019-09-30",
+            "join_date_clause": "between",
+            "join_date_range": "2015-09-16 - 2019-09-30",
+            "kode_barang": "88128",
+            "h_member": 317000,
+            "diskon": 25,
+            "harga_diskon": 238000,
+            "vc": 164000,
+            "promo_caption": "SERIES PROMO | 25% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2015-09-16 - 2019-09-30",
+            "join_date_clause": "between",
+            "join_date_range": "2015-09-16 - 2019-09-30",
+            "kode_barang": "88089",
+            "h_member": 317000,
+            "diskon": 25,
+            "harga_diskon": 238000,
+            "vc": 164000,
+            "promo_caption": "SERIES PROMO | 25% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2015-09-16 - 2019-09-30",
+            "join_date_clause": "between",
+            "join_date_range": "2015-09-16 - 2019-09-30",
+            "kode_barang": "88006",
+            "h_member": 317000,
+            "diskon": 25,
+            "harga_diskon": 238000,
+            "vc": 164000,
+            "promo_caption": "SERIES PROMO | 25% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2015-09-16 - 2019-09-30",
+            "join_date_clause": "between",
+            "join_date_range": "2015-09-16 - 2019-09-30",
+            "kode_barang": "88121",
+            "h_member": 317000,
+            "diskon": 25,
+            "harga_diskon": 238000,
+            "vc": 158000,
+            "promo_caption": "SERIES PROMO | 25% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2015-09-16 - 2019-09-30",
+            "join_date_clause": "between",
+            "join_date_range": "2015-09-16 - 2019-09-30",
+            "kode_barang": "88057",
+            "h_member": 317000,
+            "diskon": 25,
+            "harga_diskon": 246000,
+            "vc": 169000,
+            "promo_caption": "SERIES PROMO | 25% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2015-09-16 - 2019-09-30",
+            "join_date_clause": "between",
+            "join_date_range": "2015-09-16 - 2019-09-30",
+            "kode_barang": "88008",
+            "h_member": 317000,
+            "diskon": 25,
+            "harga_diskon": 246000,
+            "vc": 169000,
+            "promo_caption": "SERIES PROMO | 25% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2015-09-16 - 2019-09-30",
+            "join_date_clause": "between",
+            "join_date_range": "2015-09-16 - 2019-09-30",
+            "kode_barang": "88170",
+            "h_member": 328000,
+            "diskon": 25,
+            "harga_diskon": 306000,
+            "vc": 185000,
+            "promo_caption": "SERIES PROMO | 25% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2015-09-16 - 2019-09-30",
+            "join_date_clause": "between",
+            "join_date_range": "2015-09-16 - 2019-09-30",
+            "kode_barang": "88044",
+            "h_member": 408000,
+            "diskon": 25,
+            "harga_diskon": 246000,
+            "vc": 140000,
+            "promo_caption": "SERIES PROMO | 25% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2015-09-16 - 2019-09-30",
+            "join_date_clause": "between",
+            "join_date_range": "2015-09-16 - 2019-09-30",
+            "kode_barang": "88030",
+            "h_member": 328000,
+            "diskon": 25,
+            "harga_diskon": 246000,
+            "vc": 169000,
+            "promo_caption": "SERIES PROMO | 25% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2015-09-16 - 2019-09-30",
+            "join_date_clause": "between",
+            "join_date_range": "2015-09-16 - 2019-09-30",
+            "kode_barang": "88031",
+            "h_member": 328000,
+            "diskon": 25,
+            "harga_diskon": 246000,
+            "vc": 149000,
+            "promo_caption": "SERIES PROMO | 25% OFF"
+        },
+
+
+        {
+            "promo_type": "BUY-SERIES-GET-DISCOUNT",
+            "period": "2015-09-16 - 2019-09-30",
+            "kode_barang": [
+                "88001",
+                "88002",
+                "88003",
+                "88004",
+                "88005",
+                "88006",
+                "88008",
+                "88009",
+                "88055",
+                "88057",
+                "88060",
+                "88063",
+                "88065",
+                "88073",
+                "88074",
+                "88083",
+                "88085",
+                "88089",
+                "88093",
+                "88121",
+                "88122",
+                "88128",
+                "88131",
+                "88139",
+                "88140",
+                "88141",
+                "88142",
+                "88143",
+                "88144",
+                "88145",
+                "88146",
+                "88147",
+                "88148",
+                "88149",
+                "88150",
+                "88151",
+                "88152",
+                "88153",
+                "88154",
+                "88155",
+                "88156",
+                "88157",
+                "88158",
+                "88159",
+                "88160",
+                "88161"
             ],
+            "discount_price": 35000,
             "multiply_applies": false
         },
 
-        {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88074",
-            "h_member": 317000,
-            "diskon": 10,
-            "harga_diskon": 286000,
-            "vc": 238000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88089",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88093",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88131",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88147",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88148",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88149",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88150",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88151",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88152",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88153",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88154",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88155",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        },
 
         {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88074",
-            "h_member": 317000,
-            "diskon": 20,
-            "harga_diskon": 254000,
-            "vc": 195000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88089",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88093",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88131",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88147",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88148",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88149",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88150",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88151",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88152",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88153",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88154",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88155",
-            "h_member": 317000,
-            "vc": 288000,
-            "free_items": "16008",
-            "multiply_applies": true
-        },
-
-
-        {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88060",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88063",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88065",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88073",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88128",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88139",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88140",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88141",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88142",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88143",
-            "h_member": 317000,
-            "diskon": 10,
-            "harga_diskon": 286000,
-            "vc": 211000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88144",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88145",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88146",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        },
-
-        {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88060",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88063",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88065",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88073",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88128",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88139",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88140",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88141",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88142",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88143",
-            "h_member": 317000,
-            "diskon": 20,
-            "harga_diskon": 254000,
-            "vc": 211000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88144",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88145",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88146",
-            "h_member": 317000,
-            "vc": 275000,
-            "free_items": "16009",
-            "multiply_applies": true
-        },
-
-
-        {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88055",
-            "h_member": 317000,
-            "vc": 243000,
-            "free_items": "01001",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88057",
-            "h_member": 317000,
-            "vc": 243000,
-            "free_items": "01001",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88083",
-            "h_member": 317000,
-            "vc": 264000,
-            "free_items": "01001",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88085",
-            "h_member": 317000,
-            "vc": 264000,
-            "free_items": "01001",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88121",
-            "h_member": 317000,
-            "vc": 243000,
-            "free_items": "01001",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88122",
-            "h_member": 317000,
-            "vc": 243000,
-            "free_items": "01001",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88156",
-            "h_member": 317000,
-            "vc": 264000,
-            "free_items": "01001",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88157",
-            "h_member": 317000,
-            "vc": 243000,
-            "free_items": "01001",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88158",
-            "h_member": 317000,
-            "vc": 243000,
-            "free_items": "01001",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88159",
-            "h_member": 317000,
-            "vc": 243000,
-            "free_items": "01001",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88160",
-            "h_member": 317000,
-            "vc": 243000,
-            "free_items": "01001",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "before",
-            "join_date_range": "2019-07-16",
-            "kode_barang": "88161",
-            "h_member": 317000,
-            "vc": 264000,
-            "free_items": "01001",
-            "multiply_applies": true
-        },
-
-        {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88055",
-            "h_member": 317000,
-            "vc": 243000,
-            "free_items": "01001",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88057",
-            "h_member": 317000,
-            "vc": 243000,
-            "free_items": "01001",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88083",
-            "h_member": 317000,
-            "vc": 264000,
-            "free_items": "01001",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88085",
-            "h_member": 317000,
-            "vc": 264000,
-            "free_items": "01001",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88121",
-            "h_member": 317000,
-            "vc": 243000,
-            "free_items": "01001",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88122",
-            "h_member": 317000,
-            "vc": 243000,
-            "free_items": "01001",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88156",
-            "h_member": 317000,
-            "vc": 264000,
-            "free_items": "01001",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88157",
-            "h_member": 317000,
-            "vc": 243000,
-            "free_items": "01001",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88158",
-            "h_member": 317000,
-            "vc": 243000,
-            "free_items": "01001",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88159",
-            "h_member": 317000,
-            "vc": 243000,
-            "free_items": "01001",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88160",
-            "h_member": 317000,
-            "vc": 243000,
-            "free_items": "01001",
-            "multiply_applies": true
-        }, {
-            "period": "2019-07-16 - 2019-07-31",
-            "join_date_clause": "between",
-            "join_date_range": "2019-07-16 - 2019-07-31",
-            "kode_barang": "88161",
-            "h_member": 317000,
-            "vc": 264000,
-            "free_items": "01001",
-            "multiply_applies": true
-        },
-
-        {
-            "period": "2019-07-16 - 2019-07-31",
-            "kode_barang": "07002",
-            "h_member": 246000,
-            "diskon": 20,
-            "harga_diskon": 197000,
-            "vc": 151000
-        },
-        {
-            "period": "2019-07-16 - 2019-07-31",
-            "kode_barang": "07003",
-            "h_member": 246000,
-            "diskon": 20,
-            "harga_diskon": 197000,
-            "vc": 151000
+            "promo_type": "SAF-BUY-GET-DISCOUNT",
+            "period": "2015-09-16 - 2019-09-30",
+            "kode_barang": [
+                "07002", "07004"
+            ],
+            "promoted_item": {
+                "kode_barang": "02005",
+                "nama": "SERUM ANTI FLEK",
+                "h_member": 80000,
+                "diskon": 50,
+                "harga_diskon": 40000,
+                "vc": 24000,
+                "promo_caption": "DISCOUNT GET DISCOUNT | 50% OFF",
+                "berat": 21,
+                "unit": "PIECES"
+            },
+            "multiply_applies": true,
+            "promo_caption": "SPECIAL OFFER",
+            "rule-text": "lorem ipsum dolor sit amet"
         }
     ]
 }

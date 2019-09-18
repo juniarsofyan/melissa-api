@@ -21,8 +21,9 @@ $app->group('/auth', function () use ($app) {
 $app->post("/consultation", 'ConsultationController:add');
 $app->get("/ongkirtrans", 'TransactionController:ongkir');
 
-$app->group('/product', function () use ($app) {
-    $app->get("/", 'ProductController:get');
+$app->group('/products', function () use ($app) {
+    $app->get("/{category}/{offset}/{limit}", 'ProductController:index');
+    
     $app->get("/series", 'ProductController:series');
     $app->get("/{type}", 'ProductController:get');
     $app->get("/{type}/related/{product_code}", 'ProductController:related');
@@ -59,6 +60,7 @@ $app->group('/transaction', function () use ($app) {
     $app->get("/confirm-payment/{transaction_id}", 'TransactionController:setPaymentConfirmed');
     $app->get("/confirm-received/{transaction_id}", 'TransactionController:setItemReceived');
     $app->post("/check-sales-branches-stock", 'TransactionController:checkSalesBranchesStock');
+    $app->get("/{transaction_id}/delete", 'TransactionController:deleteTransaction');
 });
 
 $app->group('/wishlist', function () use ($app) {
@@ -80,10 +82,17 @@ $app->group('/ongkir', function () use ($app) {
 });
 
 $app->group('/promo', function () use ($app) {
+    $app->get("/count", 'PromoController:countProducts');
+    $app->get("/items/{offset}/{limit}", 'PromoController:all');
     $app->post("/items", 'PromoController:all');
     $app->post("/{type}/items", 'PromoController:all');
     $app->post("/product/{product_code}/detail", 'PromoController:detail');
     $app->post("/specific-items", 'PromoController:specificItems');
     $app->post("/minimum-purchase", 'PromoController:minimumPurchasePromo');
     $app->post("/discount-get-discount", 'PromoController:discountGetDiscountPromo');
+    $app->post("/buy-get-discount", 'PromoController:buyGetDiscount');
+    $app->post("/buy-get-discount-saf", 'PromoController:buyGetDiscountSAF');
+    $app->get("/first-transaction-promo/{no_member}", 'PromoController:firstTransactionPromo');
+    $app->get("/new-recruit-promo/{no_member}", 'PromoController:newRecruitPromo');
+    $app->get("/buy-series-get-discount-rupiah/{no_member}", 'PromoController:buySeriesGetDiscountRupiah');
 });

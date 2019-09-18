@@ -21,7 +21,7 @@ return [
             'host' => 'localhost',
             'user' => 'root',
             'pass' => 's3cret',
-            'dbname' => 'dev_beshop',
+            'dbname' => 'sandbox_shop',
             'driver' => 'mysql'
         ],
 
