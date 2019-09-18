@@ -93,10 +93,43 @@ class ProductController
         
         if ($stmt->rowCount() > 0) {
             $result = $stmt->fetchAll();
-            return $response->withJson(["status" => "success", "data" => $result], 200);
+            $rowcount = $this->countProducts($category);
+            return $response->withJson(["status" => "success", "rowcount" => $rowcount, "data" => $result], 200);
         } else {
             return $response->withJson(["status" => "success", "data" => null], 200);
         }
+    }
+
+    // public function countProducts(Request $request, Response $response, array $args)
+    public function countProducts($category)
+    {
+        // $category = $args["category"];
+
+        $sql = "SELECT 
+                    COUNT(brg.kode_barang) as rowcount
+                FROM cn_barang brg
+                WHERE 
+                    kode_barang NOT IN (
+                        SELECT kode_barang 
+                        FROM cn_barang
+                        WHERE kode_barang BETWEEN 'SK005' AND 'SK024'
+                    )
+                    AND brg.h_member > 0
+                    AND brg.cat = 0
+                    AND jenis = :category";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':category', $category, \PDO::PARAM_STR);
+        $stmt->execute();
+        
+        return $stmt->fetch()['rowcount'];
+
+        /* if ($stmt->rowCount() > 0) {
+            $result = $stmt->fetch();
+            return $response->withJson(["status" => "success", "data" => $result], 200);
+        } else {
+            return $response->withJson(["status" => "success", "data" => null], 200);
+        } */
     }
 
     public function search(Request $request, Response $response, array $args)

@@ -23,6 +23,7 @@ $app->get("/ongkirtrans", 'TransactionController:ongkir');
 
 $app->group('/products', function () use ($app) {
     $app->get("/{category}/{offset}/{limit}", 'ProductController:index');
+    $app->get("/{category}/count", 'ProductController:countProducts');
     
     $app->get("/series", 'ProductController:series');
     $app->get("/{type}", 'ProductController:get');
