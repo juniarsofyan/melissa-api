@@ -16,6 +16,7 @@ use Slim\Http\Response;
 $app->group('/auth', function () use ($app) {
     $app->post("/login", 'AuthController:login');
     $app->post("/logout", 'AuthController:logout');
+    $app->post("/register", 'AuthController:register');
 });
 
 $app->post("/consultation", 'ConsultationController:add');
@@ -24,7 +25,7 @@ $app->get("/ongkirtrans", 'TransactionController:ongkir');
 $app->group('/products', function () use ($app) {
     $app->get("/{category}/{offset}/{limit}", 'ProductController:index');
     $app->get("/{category}/count", 'ProductController:countProducts');
-    
+
     $app->get("/series", 'ProductController:series');
     $app->get("/{type}", 'ProductController:get');
     $app->get("/{type}/related/{product_code}", 'ProductController:related');
@@ -35,6 +36,11 @@ $app->group('/products', function () use ($app) {
 $app->group('/account', function () use ($app) {
     $app->get("/get/{token}", 'AccountController:get');
     $app->post("/update", 'AccountController:update');
+});
+
+$app->group('/profile', function () use ($app) {
+    $app->post("/get", 'ProfileController:get');
+    $app->post("/update", 'ProfileController:update');
 });
 
 $app->group('/shipping-address', function () use ($app) {

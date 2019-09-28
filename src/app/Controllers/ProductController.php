@@ -72,7 +72,8 @@ class ProductController
                     IFNULL(brg.diskon, 0) as diskon,
                     brg.pic,
                     tipe_kulit,
-                    unit
+                    unit,
+                    cat
                 FROM cn_barang brg
                 WHERE 
                     kode_barang NOT IN (
@@ -87,10 +88,10 @@ class ProductController
 
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue(':category', $category, \PDO::PARAM_STR);
-        $stmt->bindValue(':limit', (int)$limit, \PDO::PARAM_INT);
-        $stmt->bindValue(':offset', (int)$offset, \PDO::PARAM_INT);
+        $stmt->bindValue(':limit', (int) $limit, \PDO::PARAM_INT);
+        $stmt->bindValue(':offset', (int) $offset, \PDO::PARAM_INT);
         $stmt->execute();
-        
+
         if ($stmt->rowCount() > 0) {
             $result = $stmt->fetchAll();
             $rowcount = $this->countProducts($category);
@@ -121,7 +122,7 @@ class ProductController
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue(':category', $category, \PDO::PARAM_STR);
         $stmt->execute();
-        
+
         return $stmt->fetch()['rowcount'];
 
         /* if ($stmt->rowCount() > 0) {
@@ -199,7 +200,8 @@ class ProductController
                     brg.pic,
                     brg.unit,
                     despro.des1 AS deskripsi,
-                    despro.pakai AS cara_pakai
+                    despro.pakai AS cara_pakai,
+                    cat
                 FROM cn_barang brg
                 LEFT JOIN cn_des_pro despro
                     ON brg.kode_barang = despro.kode

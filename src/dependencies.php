@@ -35,13 +35,19 @@ $container['OngkirController'] = function ($c) {
 
 $container['AuthController'] = function ($c) {
     $db = $c->get("db");
-    return new App\Controllers\AuthController($db);
+    $mailer = $c->get("Mailer");
+    return new App\Controllers\AuthController($db, $mailer);
 };
 
 $container['AccountController'] = function ($c) {
     $db = $c->get("db");
     $mailer = $c->get("Mailer");
     return new App\Controllers\AccountController($db, $mailer);
+};
+
+$container['ProfileController'] = function ($c) {
+    $db = $c->get("db");
+    return new App\Controllers\ProfileController($db);
 };
 
 $container['ShippingAddressController'] = function ($c) {
