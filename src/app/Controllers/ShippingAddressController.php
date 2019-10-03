@@ -52,7 +52,7 @@ class ShippingAddressController
                     sa.kota_id, sa.kota_nama, 
                     sa.kecamatan_id, sa.kecamatan_nama, 
                     sa.alamat, sa.kode_pos, sa.is_default
-                FROM cn_shipping_address_member sa
+                FROM cn_shipping_address sa
                 INNER JOIN cn_customer cs
                 ON sa.customer_id = cs.no_member
                 WHERE cs.login_token=:token
@@ -81,7 +81,7 @@ class ShippingAddressController
                     sa.kota_id, sa.kota_nama, 
                     sa.kecamatan_id, sa.kecamatan_nama, 
                     sa.alamat, sa.kode_pos, sa.is_default
-                FROM cn_shipping_address_member sa
+                FROM cn_shipping_address sa
                 INNER JOIN cn_customer cs
                 ON sa.customer_id = cs.no_member
                 WHERE sa.id=:id";
@@ -104,8 +104,8 @@ class ShippingAddressController
     public function add(Request $request, Response $response)
     {
         $shipping_address = $request->getParsedBody();
-        // $sql = "INSERT INTO cn_shipping_address_member (customer_id, nama, telp, provinsi, kota, kecamatan, alamat, kode_pos, is_default) VALUE ((SELECT id FROM cn_customer WHERE login_token=:token), :nama, :telp, :provinsi, :kota, :kecamatan, :alamat, :kode_pos, :is_default)";
-        $sql = "INSERT INTO cn_shipping_address_member (
+        // $sql = "INSERT INTO cn_shipping_address (customer_id, nama, telp, provinsi, kota, kecamatan, alamat, kode_pos, is_default) VALUE ((SELECT id FROM cn_customer WHERE login_token=:token), :nama, :telp, :provinsi, :kota, :kecamatan, :alamat, :kode_pos, :is_default)";
+        $sql = "INSERT INTO cn_shipping_address (
                     customer_id, nama, telp, 
                     provinsi_id, provinsi_nama, 
                     kota_id, kota_nama, 
@@ -141,7 +141,7 @@ class ShippingAddressController
             $last_insert_id = $this->db->lastInsertId();
 
             $sql = "SELECT COUNT(id) AS count_shipping_address 
-                    FROM cn_shipping_address_member 
+                    FROM cn_shipping_address 
                     WHERE customer_id IN (SELECT no_member FROM cn_customer WHERE login_token=:token)";
 
             $stmt = $this->db->prepare($sql);
@@ -166,7 +166,7 @@ class ShippingAddressController
     {
         $shipping_address = $request->getParsedBody();
 
-        $sql = "UPDATE cn_shipping_address_member 
+        $sql = "UPDATE cn_shipping_address 
                 SET 
                     nama=:nama, 
                     telp=:telp, 
@@ -206,7 +206,7 @@ class ShippingAddressController
 
     public function delete(Request $request, Response $response, array $args)
     {
-        $sql = "DELETE FROM cn_shipping_address_member WHERE id=:id";
+        $sql = "DELETE FROM cn_shipping_address WHERE id=:id";
         $stmt = $this->db->prepare($sql);
 
         $data = [":id" => $args["id"]];
@@ -220,7 +220,7 @@ class ShippingAddressController
 
     public function setDefault(Request $request, Response $response, array $args)
     {
-        $sql1 = "UPDATE cn_shipping_address_member 
+        $sql1 = "UPDATE cn_shipping_address 
                 SET is_default=0
                 WHERE id NOT IN(:id)";
 
@@ -230,7 +230,7 @@ class ShippingAddressController
 
         if ($stmt1->execute($params1)) {
 
-            $sql2 = "UPDATE cn_shipping_address_member 
+            $sql2 = "UPDATE cn_shipping_address 
                     SET is_default=1
                     WHERE id=:id";
 
