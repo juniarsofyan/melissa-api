@@ -59,7 +59,7 @@ class ProfileController
             ":birthdate" => $customer['birthdate'],
             ":phone" => $customer['phone'],
             ":email" => $customer['email'],
-            ":email2" => $customer['email2']
+            ":email2" => $customer['email']
         ];
 
         if ($stmt->execute($data)) {

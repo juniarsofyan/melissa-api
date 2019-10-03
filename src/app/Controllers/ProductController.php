@@ -199,8 +199,11 @@ class ProductController
                     IFNULL(brg.diskon, 0) as diskon,
                     brg.pic,
                     brg.unit,
+                    des_singkat,
                     despro.des1 AS deskripsi,
                     despro.pakai AS cara_pakai,
+                    despro.des_singkat AS des_singkat,
+                    despro.manfaat AS manfaat,
                     cat
                 FROM cn_barang brg
                 LEFT JOIN cn_des_pro despro
