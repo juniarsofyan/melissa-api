@@ -14,22 +14,24 @@ class ShippingAddressController
         $this->db = $db;
     }
 
-    public function get(Request $request, Response $response, array $args)
+    public function get(Request $request, Response $response)
     {
+        $customer = $request->getParsedBody();
+        
         $sql = "SELECT 
-                    sa.id, sa.nama, sa.telp, 
+                    sa.id, sa.nama, sa.telepon, 
                     sa.provinsi_id, sa.provinsi_nama, 
                     sa.kota_id, sa.kota_nama, 
                     sa.kecamatan_id, sa.kecamatan_nama, 
                     sa.alamat, sa.kode_pos, sa.is_default
-                FROM cn_shipping_address_member sa
-                INNER JOIN tb_member cs
-                ON sa.customer_id = cs.no_member
-                WHERE cs.login_token=:token";
+                FROM cn_shipping_address sa
+                INNER JOIN cn_customer cs
+                ON sa.customer_id = cs.id
+                WHERE cs.email=:email";
 
         $stmt = $this->db->prepare($sql);
 
-        $data = [":token" => $args["token"]];
+        $data = [":email" => $customer["email"]];
 
         $stmt->execute($data);
 
@@ -51,7 +53,7 @@ class ShippingAddressController
                     sa.kecamatan_id, sa.kecamatan_nama, 
                     sa.alamat, sa.kode_pos, sa.is_default
                 FROM cn_shipping_address_member sa
-                INNER JOIN tb_member cs
+                INNER JOIN cn_customer cs
                 ON sa.customer_id = cs.no_member
                 WHERE cs.login_token=:token
                 AND sa.is_default = 1";
@@ -80,7 +82,7 @@ class ShippingAddressController
                     sa.kecamatan_id, sa.kecamatan_nama, 
                     sa.alamat, sa.kode_pos, sa.is_default
                 FROM cn_shipping_address_member sa
-                INNER JOIN tb_member cs
+                INNER JOIN cn_customer cs
                 ON sa.customer_id = cs.no_member
                 WHERE sa.id=:id";
 
@@ -102,7 +104,7 @@ class ShippingAddressController
     public function add(Request $request, Response $response)
     {
         $shipping_address = $request->getParsedBody();
-        // $sql = "INSERT INTO cn_shipping_address_member (customer_id, nama, telp, provinsi, kota, kecamatan, alamat, kode_pos, is_default) VALUE ((SELECT id FROM tb_member WHERE login_token=:token), :nama, :telp, :provinsi, :kota, :kecamatan, :alamat, :kode_pos, :is_default)";
+        // $sql = "INSERT INTO cn_shipping_address_member (customer_id, nama, telp, provinsi, kota, kecamatan, alamat, kode_pos, is_default) VALUE ((SELECT id FROM cn_customer WHERE login_token=:token), :nama, :telp, :provinsi, :kota, :kecamatan, :alamat, :kode_pos, :is_default)";
         $sql = "INSERT INTO cn_shipping_address_member (
                     customer_id, nama, telp, 
                     provinsi_id, provinsi_nama, 
@@ -110,7 +112,7 @@ class ShippingAddressController
                     kecamatan_id, kecamatan_nama, 
                     alamat, kode_pos
                 ) VALUE (
-                    (SELECT no_member FROM tb_member WHERE login_token=:token), 
+                    (SELECT no_member FROM cn_customer WHERE login_token=:token), 
                     :nama, :telp, 
                     :provinsi_id, :provinsi_nama, 
                     :kota_id, :kota_nama, 
@@ -140,7 +142,7 @@ class ShippingAddressController
 
             $sql = "SELECT COUNT(id) AS count_shipping_address 
                     FROM cn_shipping_address_member 
-                    WHERE customer_id IN (SELECT no_member FROM tb_member WHERE login_token=:token)";
+                    WHERE customer_id IN (SELECT no_member FROM cn_customer WHERE login_token=:token)";
 
             $stmt = $this->db->prepare($sql);
 

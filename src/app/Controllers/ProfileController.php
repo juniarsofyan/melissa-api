@@ -18,8 +18,8 @@ class ProfileController
     {
         $user = $request->getParsedBody();
 
-        $sql = "SELECT no_member, no_ktp as nik, nama, tgl_lahir, telp, email 
-                FROM tb_member 
+        $sql = "SELECT nik, nama, tgl_lahir, telepon, email 
+                FROM cn_customer 
                 WHERE email=:email";
 
         $stmt = $this->db->prepare($sql);

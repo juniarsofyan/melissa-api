@@ -44,7 +44,8 @@ $app->group('/profile', function () use ($app) {
 });
 
 $app->group('/shipping-address', function () use ($app) {
-    $app->get("/get/{token}", 'ShippingAddressController:get');
+    // $app->get("/get/{token}", 'ShippingAddressController:get');
+    $app->post("/get", 'ShippingAddressController:get');
     $app->get("/current/{token}", 'ShippingAddressController:current');
     $app->get("/detail/{id}", 'ShippingAddressController:detail');
     $app->post("/add", 'ShippingAddressController:add');
