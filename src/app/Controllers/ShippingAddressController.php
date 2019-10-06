@@ -44,23 +44,25 @@ class ShippingAddressController
         return $response->withJson(["status" => "failed", "data" => "0"], 200);
     }
 
-    public function current(Request $request, Response $response, array $args)
+    public function current(Request $request, Response $response)
     {
+        $customer = $request->getParsedBody();
+
         $sql = "SELECT 
-                    sa.id, sa.nama, sa.telp, 
+                    sa.id, sa.nama, sa.telepon, 
                     sa.provinsi_id, sa.provinsi_nama, 
                     sa.kota_id, sa.kota_nama, 
                     sa.kecamatan_id, sa.kecamatan_nama, 
                     sa.alamat, sa.kode_pos, sa.is_default
                 FROM cn_shipping_address sa
                 INNER JOIN cn_customer cs
-                ON sa.customer_id = cs.no_member
-                WHERE cs.login_token=:token
+                ON sa.customer_id = cs.id
+                WHERE cs.email=:email
                 AND sa.is_default = 1";
 
         $stmt = $this->db->prepare($sql);
 
-        $data = [":token" => $args["token"]];
+        $data = [":email" => $customer["email"]];
 
         $stmt->execute($data);
 
@@ -83,7 +85,7 @@ class ShippingAddressController
                     sa.alamat, sa.kode_pos, sa.is_default
                 FROM cn_shipping_address sa
                 INNER JOIN cn_customer cs
-                ON sa.customer_id = cs.no_member
+                ON sa.customer_id = cs.id
                 WHERE sa.id=:id";
 
         $stmt = $this->db->prepare($sql);
@@ -104,15 +106,14 @@ class ShippingAddressController
     public function add(Request $request, Response $response)
     {
         $shipping_address = $request->getParsedBody();
-        // $sql = "INSERT INTO cn_shipping_address (customer_id, nama, telp, provinsi, kota, kecamatan, alamat, kode_pos, is_default) VALUE ((SELECT id FROM cn_customer WHERE login_token=:token), :nama, :telp, :provinsi, :kota, :kecamatan, :alamat, :kode_pos, :is_default)";
         $sql = "INSERT INTO cn_shipping_address (
-                    customer_id, nama, telp, 
+                    customer_id, nama, telepon, 
                     provinsi_id, provinsi_nama, 
                     kota_id, kota_nama, 
                     kecamatan_id, kecamatan_nama, 
                     alamat, kode_pos
                 ) VALUE (
-                    (SELECT no_member FROM cn_customer WHERE login_token=:token), 
+                    (SELECT id FROM cn_customer WHERE email=:email), 
                     :nama, :telp, 
                     :provinsi_id, :provinsi_nama, 
                     :kota_id, :kota_nama, 
@@ -122,7 +123,7 @@ class ShippingAddressController
         $stmt = $this->db->prepare($sql);
 
         $data = [
-            ":token" => $shipping_address["token"],
+            ":email" => $shipping_address["email"],
             ":nama" => $shipping_address["name"],
             ":telp" => $shipping_address["phone"],
             ":provinsi_id" => $shipping_address["province_id"],
@@ -132,8 +133,7 @@ class ShippingAddressController
             ":kecamatan_id" => $shipping_address["subdistrict_id"],
             ":kecamatan_nama" => $shipping_address["subdistrict_name"],
             ":alamat" => $shipping_address["address"],
-            ":kode_pos" => $shipping_address["postcode"],
-            // ":is_default" => $shipping_address["is_default"]
+            ":kode_pos" => $shipping_address["postcode"]
         ];
 
         if ($stmt->execute($data)) {
@@ -142,11 +142,11 @@ class ShippingAddressController
 
             $sql = "SELECT COUNT(id) AS count_shipping_address 
                     FROM cn_shipping_address 
-                    WHERE customer_id IN (SELECT no_member FROM cn_customer WHERE login_token=:token)";
+                    WHERE customer_id IN (SELECT id FROM cn_customer WHERE email=:email)";
 
             $stmt = $this->db->prepare($sql);
 
-            $data = [":token" => $shipping_address["token"]];
+            $data = [":email" => $shipping_address["email"]];
 
             $stmt->execute($data);
 

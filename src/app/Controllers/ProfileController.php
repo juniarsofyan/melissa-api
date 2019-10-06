@@ -41,12 +41,12 @@ class ProfileController
     {
         $customer = $request->getParsedBody();
 
-        $sql = "UPDATE tb_member 
+        $sql = "UPDATE cn_customer 
             SET 
-                no_ktp=:no_ktp,
+                nik=:nik,
                 nama=:name,
                 tgl_lahir=:birthdate,
-                telp=:phone,
+                telepon=:phone,
                 email=:email
             WHERE 
                 email=:email2";
@@ -54,7 +54,7 @@ class ProfileController
         $stmt = $this->db->prepare($sql);
 
         $data = [
-            ":no_ktp" => $customer['nik'],
+            ":nik" => $customer['nik'],
             ":name" => $customer['name'],
             ":birthdate" => $customer['birthdate'],
             ":phone" => $customer['phone'],
