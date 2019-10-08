@@ -64,7 +64,7 @@ $app->group('/cart', function () use ($app) {
 
 $app->group('/transaction', function () use ($app) {
     $app->post("/add", 'TransactionController:add');
-    $app->get("/history/{token}", 'TransactionController:history');
+    $app->post("/history", 'TransactionController:history');
     $app->get("/confirm-payment/{transaction_id}", 'TransactionController:setPaymentConfirmed');
     $app->get("/confirm-received/{transaction_id}", 'TransactionController:setItemReceived');
     $app->post("/check-sales-branches-stock", 'TransactionController:checkSalesBranchesStock');

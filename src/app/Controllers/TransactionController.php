@@ -195,6 +195,8 @@ class TransactionController
 
     public function history(Request $request, Response $response, array $args)
     {
+        $customer = $request->getParsedBody();
+
         try {
             $this->transactions = [];
             $this->order_progress = [];
@@ -213,21 +215,23 @@ class TransactionController
                                     sha.telp,
                                     trs.kode_spb,
                                     trs.status_transaksi,
-                                    trs.tgl_transaksi
+                                    trs.tgl_transaksi,
+                                    trs.grand_total,
+                                    SUBSTRING(trs.grand_total, -3) as kode_unik_transfer
                                 FROM 
                                     cn_transaksi trs
                                 INNER JOIN cn_shipping_address_member sha
                                     ON trs.shipping_address_id = sha.id
-                                INNER JOIN tb_member cst
-                                    ON cst.no_member = trs.customer_id
+                                INNER JOIN cn_customer cst
+                                    ON cst.id = trs.customer_id
                                 INNER JOIN cn_order_history odh
                                     ON odh.transaksi_id = trs.id
-                                WHERE cst.login_token=:token
+                                WHERE cst.email=:email
                                 GROUP by (transaksi_id)
                                 ORDER BY trs.tgl_transaksi DESC, trs.id DESC";
 
             $stmt = $this->db->prepare($sql_transactions);
-            $data = [":token" => $args["token"]];
+            $data = [":email" => $customer["email"]];
             $stmt->execute($data);
             $this->transactions = $stmt->fetchAll();
 
@@ -242,10 +246,10 @@ class TransactionController
                                         cn_order_history odh
                                     INNER JOIN cn_transaksi trs
                                         ON trs.id = odh.transaksi_id
-                                    INNER JOIN tb_member cst
-                                        ON cst.no_member = trs.customer_id
+                                    INNER JOIN cn_customer cst
+                                        ON cst.id = trs.customer_id
                                     WHERE 
-                                        cst.login_token=:token
+                                        cst.email=:email
                                         AND
                                         odh.transaksi_id = trs.id
                                     ORDER BY 
@@ -254,7 +258,7 @@ class TransactionController
                                         odh.id ASC";
 
                 $stmt = $this->db->prepare($sql_order_progress);
-                $data = [":token" => $args["token"]];
+                $data = [":email" => $customer["email"]];
                 $stmt->execute($data);
                 $this->order_progress = $stmt->fetchAll();
 
@@ -271,25 +275,41 @@ class TransactionController
                                 ON trs.id = trd.transaksi_id
                             INNER JOIN cn_barang brg
                                 ON brg.kode_barang = trd.kode_barang
-                            INNER JOIN tb_member cst
-                                ON cst.no_member = trs.customer_id
+                            INNER JOIN cn_customer cst
+                                ON cst.id = trs.customer_id
                             WHERE 
-                                cst.login_token=:token
+                                cst.email=:email
                                 and trd.transaksi_id in (SELECT transaksi_id FROM cn_order_history)
                                 order by trs.id";
 
                     $stmt = $this->db->prepare($sql_items);
-                    $data = [":token" => $args["token"]];
+                    $data = [":email" => $customer["email"]];
                     $stmt->execute($data);
                     $this->order_items = $stmt->fetchAll();
                 }
             }
 
-            $data = array(
-                "transactions" => $this->transactions,
-                "order_progress" => $this->order_progress,
-                "order_items" => $this->order_items
-            );
+            $data = array();
+
+            foreach ($this->transactions as $transaction) {
+                $row = array();
+                $row['transaction'] = $transaction;
+                $row['progresses'] = array();
+                $row['items'] = array();
+                
+                foreach ($this->order_progress as $progress) {
+                    if ($progress['transaksi_id'] == $transaction['transaksi_id']) {
+                        $row['progresses'][] = $progress;
+                    }
+                }
+
+                foreach ($this->order_items as $order_item) {
+                    if ($order_item['transaksi_id'] == $transaction['transaksi_id']) {
+                        $row['items'][] = $order_item;
+                    }
+                }
+                $data[] = $row;
+            }
 
             return $response->withJson(["status" => "success", "data" => $data], 200);
         } catch (Exception $e) {
