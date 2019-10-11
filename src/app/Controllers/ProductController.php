@@ -15,53 +15,17 @@ class ProductController
         $this->db = $db;
     }
 
-    /* public function get(Request $request, Response $response, array $args)
-    {
-        $sql = "SELECT 
-                    brg.kode_barang, 
-                    brg.nama, 
-                    brg.h_member harga, 
-                    IFNULL(brg.h_member - (brg.h_member * (brg.diskon / 100)), 0) AS harga_diskon,
-                    IFNULL(brg.diskon, 0) as diskon,
-                    brg.pic,
-                    tipe_kulit,
-                    unit
-                FROM cn_barang brg
-                WHERE 
-                    kode_barang NOT IN (
-                        SELECT kode_barang 
-                        FROM cn_barang
-                        WHERE kode_barang BETWEEN 'SK005' AND 'SK024'
-                    )
-                    AND brg.h_member > 0
-                    AND brg.cat = 0";
-
-
-        if (isset($args["type"])) {
-            $sql .= " AND brg.jenis=:jenis";
-            $stmt = $this->db->prepare($sql);
-            $data = [":jenis" => $args["type"]];
-            $stmt->execute($data);
-        } else {
-            $stmt = $this->db->prepare($sql);
-            $stmt->execute();
-        }
-
-
-        $result = $stmt->fetchAll();
-
-        if ($result) {
-            return $response->withJson(["status" => "success", "data" => $result], 200);
-        }
-
-        return $response->withJson(["status" => "failed", "data" => "0"], 200);
-    } */
-
     public function index(Request $request, Response $response, array $args)
     {
         $category = $args["category"];
         $limit = $args["limit"];
         $offset = $args["offset"];
+
+        $where_clause = "jenis";
+
+        if ($category == "SERIES" || $category == "series") {
+            $where_clause = "unit";
+        }
 
         $sql = "SELECT 
                     brg.kode_barang, 
@@ -83,7 +47,7 @@ class ProductController
                     )
                     AND brg.h_member > 0
                     AND brg.cat = 0
-                    AND jenis = :category
+                    AND {$where_clause} = :category
                     LIMIT :limit OFFSET :offset";
 
         $stmt = $this->db->prepare($sql);
