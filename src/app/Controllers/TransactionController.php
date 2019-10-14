@@ -217,7 +217,8 @@ class TransactionController
                                     trs.status_transaksi,
                                     trs.tgl_transaksi,
                                     trs.grand_total,
-                                    SUBSTRING(trs.grand_total, -3) as kode_unik_transfer
+                                    SUBSTRING(trs.grand_total, -3) as kode_unik_transfer,
+                                    trs.resi
                                 FROM 
                                     cn_transaksi trs
                                 INNER JOIN cn_shipping_address_member sha
