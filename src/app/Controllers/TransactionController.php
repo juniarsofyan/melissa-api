@@ -603,4 +603,151 @@ class TransactionController
 
         return true;
     }
+
+    public function deleteTransaction(Request $request, Response $response, array $args)
+    {
+        $transaction_id = $args['transaction_id'];
+
+        try {
+            $this->db->beginTransaction();
+
+            $sales_branch = $this->getSalesBranhCode($transaction_id);
+
+            if (!is_array($sales_branch)) {
+                throw new Exception();
+            }
+
+            $transaction_items = $this->getTransactionItems($transaction_id);
+
+            if (!is_array($transaction_items)) {
+                throw new Exception();
+            }
+
+            $restore_stock = $this->restoreSalesBranchStock($transaction_items, $sales_branch['kode_spb']);
+
+            if (!$restore_stock) {
+                throw new Exception();
+            }
+
+            // DELETE TRANSACTION ITEMS
+            $sql = "DELETE FROM cn_transaksi_detail WHERE transaksi_id = :transaksi_id";
+            $stmt = $this->db->prepare($sql);
+            $data = [":transaksi_id" => $transaction_id];
+            $stmt->execute($data);
+
+            // DELETE TRANSACTION
+            $sql = "DELETE FROM cn_transaksi WHERE id = :transaksi_id";
+            $stmt = $this->db->prepare($sql);
+            $data = [":transaksi_id" => $transaction_id];
+            $stmt->execute($data);
+
+
+            // DELETE ORDER HISTORY
+            $sql = "DELETE FROM cn_order_history WHERE transaksi_id = :transaksi_id";
+            $stmt = $this->db->prepare($sql);
+            $data = [":transaksi_id" => $transaction_id];
+            $stmt->execute($data);
+
+            $this->db->commit();
+
+            return $response->withJson(["status" => "success", "data" => "1"], 200);
+        } catch (Exception $e) {
+
+            $this->db->rollBack();
+
+            return $response->withJson(["status" => "failed", "data" => "0"], 200);
+        }
+    }
+
+    public function getSalesBranhCode($transaction_id)
+    {
+        $sql = "SELECT kode_spb FROM cn_transaksi WHERE id = :transaction_id;";
+
+        $stmt = $this->db->prepare($sql);
+
+        $params = [":transaction_id" => $transaction_id];
+
+        $stmt->execute($params);
+
+        if ($stmt->rowCount()) {
+            return $stmt->fetch();
+        }
+
+        return false;
+    }
+
+    public function getTransactionItems($transaction_id)
+    {
+        $sql = "SELECT t.kode_barang, t.qty, b.unit 
+                FROM cn_transaksi_detail t 
+                INNER JOIN cn_barang b
+                ON t.kode_barang = b.kode_barang
+                WHERE 
+                t.transaksi_id = :transaction_id 
+                AND
+                t.kode_barang != '90099'";
+
+        $stmt = $this->db->prepare($sql);
+
+        $params = [":transaction_id" => $transaction_id];
+
+        $stmt->execute($params);
+
+        if ($stmt->rowCount()) {
+            return $stmt->fetchAll();
+        }
+
+        return false;
+    }
+
+    public function restoreSalesBranchStock($items, $sales_branch_code)
+    {
+        $sql = "UPDATE tb_produk SET stok = stok + :qty WHERE kode_barang = :product_code AND no_member = :sales_branch_code";
+
+        if ($sales_branch_code == "00000") {
+            $sql = "UPDATE tb_barang SET stok = stok + :qty WHERE kode_barang = :product_code";
+        }
+
+        $stmt = $this->db->prepare($sql);
+
+        try {
+            foreach ($items as $item) {
+
+                if ($item['unit'] == "SERIES") {
+                    $products = $this->getSeriesProducts($item['kode_barang']);
+
+                    foreach ($products as $product) {
+
+                        $params = [
+                            ":qty" => (int) $item['qty'] * (int) $product['jumlah'],
+                            ":product_code" => $product['kode_barang']
+                        ];
+
+                        // IF DATA IS FROM tb_produk / FROM SPB
+                        if ($sales_branch_code != "00000") {
+                            $params[":sales_branch_code"] = $sales_branch_code;
+                        }
+
+                        $stmt->execute($params);
+                    }
+                } else {
+                    $params = [
+                        ":qty" => (int) $item['qty'],
+                        ":product_code" => $item['kode_barang']
+                    ];
+
+                    // IF DATA IS FROM tb_produk / FROM SPB
+                    if ($sales_branch_code != "00000") {
+                        $params[":sales_branch_code"] = $sales_branch_code;
+                    }
+
+                    $stmt->execute($params);
+                }
+            }
+
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
 }
