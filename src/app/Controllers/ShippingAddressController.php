@@ -58,7 +58,9 @@ class ShippingAddressController
                 INNER JOIN cn_customer cs
                 ON sa.customer_id = cs.id
                 WHERE cs.email=:email
-                AND sa.is_default = 1";
+                LIMIT 1";
+
+            // AND sa.is_default = 1
 
         $stmt = $this->db->prepare($sql);
 

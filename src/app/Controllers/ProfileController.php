@@ -14,6 +14,36 @@ class ProfileController
         $this->db = $db;
     }
 
+    public function register(Request $request, Response $response)
+    {
+        $profile = $request->getParsedBody();
+
+        $sql = "INSERT INTO cn_customer (
+                    nama, 
+                    email, 
+                    tanggal_registrasi
+                ) VALUES (  
+                    :nama, 
+                    :email, 
+                    :tanggal_registrasi
+                )";
+
+        $stmt = $this->db->prepare($sql);
+
+        $data = [
+            ":nama" => $profile["name"], 
+            ":email" => $profile["email"], 
+            ":tanggal_registrasi" => date('Y-m-d H:i:s')
+        ];
+
+        if ($stmt->execute($data)) {
+            // $last_insert_id = $this->db->lastInsertId();
+            return $response->withJson(["status" => "success", "data" => "1"], 200);
+        }
+
+        return $response->withJson(["status" => "failed", "data" => "0"], 200);
+    }
+
     public function get(Request $request, Response $response)
     {
         $user = $request->getParsedBody();
@@ -28,10 +58,11 @@ class ProfileController
 
         $stmt->execute($data);
 
-        $result = $stmt->fetch();
-
-        if ($result) {
+        if ($stmt->rowCount()) {
+            $result = $stmt->fetch();
             return $response->withJson(["status" => "success", "data" => $result], 200);
+        } else {
+            
         }
 
         return $response->withJson(["status" => "failed", "data" => "0"], 200);
@@ -182,7 +213,7 @@ class ProfileController
         $sql = "UPDATE cn_shipping_address 
                 SET 
                     nama=:nama, 
-                    telp=:telp, 
+                    telepon=:telepon, 
                     provinsi_id=:provinsi_id, 
                     provinsi_nama=:provinsi_nama, 
                     kota_id=:kota_id, 
@@ -198,7 +229,7 @@ class ProfileController
 
         $data = [
             ":nama" => $profile['name'],
-            ":telp" => $profile['phone'],
+            ":telepon" => $profile['phone'],
             ":provinsi_id" => $shipping_address['province_id'],
             ":provinsi_nama" => $shipping_address['province_name'],
             ":kota_id" => $shipping_address['city_id'],

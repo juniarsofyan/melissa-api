@@ -41,6 +41,7 @@ $app->group('/account', function () use ($app) {
 $app->group('/profile', function () use ($app) {
     $app->post("/get", 'ProfileController:get');
     $app->post("/update", 'ProfileController:update');
+    $app->post("/register", 'ProfileController:register');
 });
 
 $app->group('/shipping-address', function () use ($app) {
