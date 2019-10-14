@@ -80,7 +80,7 @@ class ShippingAddressController
     public function detail(Request $request, Response $response, array $args)
     {
         $sql = "SELECT 
-                    sa.id, sa.nama, sa.telp, 
+                    sa.id, sa.nama, sa.telepon, 
                     sa.provinsi_id, sa.provinsi_nama, 
                     sa.kota_id, sa.kota_nama, 
                     sa.kecamatan_id, sa.kecamatan_nama, 
@@ -116,7 +116,7 @@ class ShippingAddressController
                     alamat, kode_pos
                 ) VALUE (
                     (SELECT id FROM cn_customer WHERE email=:email), 
-                    :nama, :telp, 
+                    :nama, :telepon, 
                     :provinsi_id, :provinsi_nama, 
                     :kota_id, :kota_nama, 
                     :kecamatan_id, :kecamatan_nama, 
@@ -127,7 +127,7 @@ class ShippingAddressController
         $data = [
             ":email" => $shipping_address["email"],
             ":nama" => $shipping_address["name"],
-            ":telp" => $shipping_address["phone"],
+            ":telepon" => $shipping_address["phone"],
             ":provinsi_id" => $shipping_address["province_id"],
             ":provinsi_nama" => $shipping_address["province_name"],
             ":kota_id" => $shipping_address["city_id"],
@@ -171,7 +171,7 @@ class ShippingAddressController
         $sql = "UPDATE cn_shipping_address 
                 SET 
                     nama=:nama, 
-                    telp=:telp, 
+                    telepon=:telepon, 
                     provinsi_id=:provinsi_id, 
                     provinsi_nama=:provinsi_nama, 
                     kota_id=:kota_id, 
@@ -187,7 +187,7 @@ class ShippingAddressController
 
         $data = [
             ":nama" => $shipping_address['name'],
-            ":telp" => $shipping_address['phone'],
+            ":telepon" => $shipping_address['phone'],
             ":provinsi_id" => $shipping_address['province_id'],
             ":provinsi_nama" => $shipping_address['province_name'],
             ":kota_id" => $shipping_address['city_id'],

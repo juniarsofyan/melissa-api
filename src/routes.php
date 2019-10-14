@@ -50,7 +50,7 @@ $app->group('/shipping-address', function () use ($app) {
     $app->post("/current", 'ShippingAddressController:current');
     $app->get("/detail/{id}", 'ShippingAddressController:detail');
     $app->post("/add", 'ShippingAddressController:add');
-    $app->post("/update/{id}", 'ShippingAddressController:update');
+    $app->post("/{id}/update", 'ShippingAddressController:update');
     $app->get("/delete/{id}", 'ShippingAddressController:delete');
     $app->get("/set-default/{id}", 'ShippingAddressController:setDefault');
 });
