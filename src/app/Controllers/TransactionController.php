@@ -73,7 +73,7 @@ class TransactionController
                         ) VALUE (
                             :tgl_transaksi,
                             :nomor_transaksi,
-                            :customer_id,
+                            (SELECT id FROM cn_customer WHERE email = :customer_email),
                             :nama,
                             :metode_pengiriman,
                             :kurir,
@@ -94,7 +94,7 @@ class TransactionController
         $data = [
             ":tgl_transaksi"       => date('Y-m-d'),
             ":nomor_transaksi"     => $transaction["transaction_number"],
-            ":customer_id"         => $transaction["customer_id"],
+            ":customer_email"         => $transaction["customer_email"],
             ":nama"                => $transaction["customer_name"],
             ":metode_pengiriman"   => $transaction["shipping_method"],
             ":kurir"               => $transaction["courier"],
@@ -212,7 +212,7 @@ class TransactionController
                                     sha.kecamatan_nama,
                                     sha.alamat,
                                     sha.kode_pos,
-                                    sha.telp,
+                                    sha.telepon,
                                     trs.kode_spb,
                                     trs.status_transaksi,
                                     trs.tgl_transaksi,
@@ -221,7 +221,7 @@ class TransactionController
                                     trs.resi
                                 FROM 
                                     cn_transaksi trs
-                                INNER JOIN cn_shipping_address_member sha
+                                INNER JOIN cn_shipping_address sha
                                     ON trs.shipping_address_id = sha.id
                                 INNER JOIN cn_customer cst
                                     ON cst.id = trs.customer_id
