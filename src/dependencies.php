@@ -29,8 +29,9 @@ $container['db'] = function ($c) {
 };
 
 $container['OngkirController'] = function ($c) {
+    $db = $c->get("db");
     $config = $c->get('settings')['rajaongkir'];
-    return new App\Controllers\OngkirController($config);
+    return new App\Controllers\OngkirController($db, $config);
 };
 
 $container['AuthController'] = function ($c) {

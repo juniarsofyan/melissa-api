@@ -8,10 +8,12 @@ use Steevenz\Rajaongkir;
 
 class OngkirController
 {
+    protected $db;
     protected $raja_ongkir;
 
-    public function __construct($config)
+    public function __construct($db, $config)
     {
+        $this->db = $db;
         $this->raja_ongkir = new Rajaongkir($config['api_key'], $config['account_type']);
     }
 
@@ -79,7 +81,18 @@ class OngkirController
     public function getDeliveryStatus(Request $request, Response $response)
     {
         $item = $request->getParsedBody();
-        $delivery_status = $this->raja_ongkir->getWaybill($item['receipt_number'], $item['courier']);
+        $delivery_status = $this->raja_ongkir->getWaybill($item['receipt_number'], $this->getCourier($item['receipt_number']));
         return $response->withJson(["status" => "success", "data" => $delivery_status], 200);
+    }
+
+    public function getCourier($receipt_number) {
+        $sql_items = "SELECT tr.kurir
+                        FROM cn_transaksi tr
+                        WHERE tr.resi=:receipt_number";
+
+        $stmt = $this->db->prepare($sql_items);
+        $data = [":receipt_number" => $receipt_number];
+        $stmt->execute($data);
+        return $stmt->fetch()['kurir'];
     }
 }
