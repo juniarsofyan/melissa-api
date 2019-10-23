@@ -40,14 +40,13 @@ class Mailer
         $this->mail->addReplyTo($reply_email, $reply_name);
     }
 
-    public function sendEmail($to_email, $subject, $message, $template_name = '')
+    public function sendEmail($to_email, $subject, $mail_content)
     {
         // $this->mail->addAddress($to_email, $to_name);
         $this->mail->addAddress($to_email);
         $this->mail->Subject = $subject;
-        // $this->mail->msgHTML(file_get_contents($template_name));
-        $this->mail->msgHTML($message);
-        $this->mail->AltBody = $message;
+        $this->mail->msgHTML($mail_content);
+        $this->mail->AltBody = $mail_content;
 
         $send_email = $this->mail->send();
         if (!$send_email) {

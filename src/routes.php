@@ -13,6 +13,8 @@ use Slim\Http\Response;
     return $this->renderer->render($response, 'index.phtml', $args);
 }); */
 
+$app->get("/send", 'AuthController:send');
+
 $app->group('/auth', function () use ($app) {
     $app->post("/login", 'AuthController:login');
     $app->post("/logout", 'AuthController:logout');

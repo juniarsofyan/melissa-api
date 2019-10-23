@@ -9,11 +9,15 @@ class TransactionController
 {
     protected $db;
     protected $ongkir;
+    protected $renderer;
+    protected $mailer;
 
-    public function __construct($db, $ongkir)
+    public function __construct($db, $ongkir, $renderer, $mailer)
     {
         $this->db = $db;
         $this->ongkir = $ongkir;
+        $this->renderer = $renderer;
+        $this->mailer = $mailer;
     }
 
     public function index(Request $request, Response $response)
@@ -42,6 +46,46 @@ class TransactionController
                     $substract_sales_branch_qty = $this->substractSalesBranchQty($transaction['cart'], $transaction['sales_branch_code']);
 
                     if ($substract_sales_branch_qty) {
+
+                        $branch = $this->findBranch($transaction['sales_branch_code']);
+                        $profile = $this->findProfile($transaction['customer_email']);
+                        $shipping_address = $this->findShippingAddress($transaction['customer_email']);
+                        $items = $this->findItems($transaction['transaction_number'], $transaction['cart']);
+                        $bank = $this->findBank($transaction['bank']);
+
+                        $data = array(
+                            "email" => array(
+                                "template" => "pesanan-diterima.php",
+                                "subject" => "Transaction Activity",
+                                "recipient" => $transaction['customer_email']
+                            ),
+                            "params" => array (
+                                "name" => $transaction['customer_name'],
+                                "transaction_date" => $this->getLocalDateFormat(date('Y-m-d'), true),
+                                "transaction_number" => $transaction['transaction_number'],
+                                "bank" => $bank,
+                                "items" => $items,
+                                "branch" => $branch,
+                                "user" => array (
+                                    "name" => $profile['nama'],
+                                    "phone" => $profile['telepon']
+                                ),
+                                "receiver" => array(
+                                    "name" => $shipping_address['name'],
+                                    "phone" => $shipping_address['phone'],
+                                    "address" => $shipping_address['address']
+                                ),
+                                "expedition" => array(
+                                    "courier" => $transaction['courier'],
+                                    "type" => "",
+                                    "fee" => $transaction['shipping_fee']
+                                ),
+                                "grand_total" => $transaction['grand_total']
+                            )
+                        );
+
+                        $this->sendEmail($request, $response, $data);
+
                         return $response->withJson(["status" => "success", "data" => 1], 200);
                     }
                 }
@@ -334,6 +378,46 @@ class TransactionController
         if ($stmt->execute($params)) {
 
             if ($this->addOrderHistory($args['transaction_id'], "TRANSFERRED")) {
+
+                /* $branch = $this->findBranch($transaction['sales_branch_code']);
+                $profile = $this->findProfile($transaction['customer_email']);
+                $shipping_address = $this->findShippingAddress($transaction['customer_email']);
+                $items = $this->findItems($transaction['transaction_number'], $transaction['cart']);
+                $bank = $this->findBank($transaction['bank']);
+
+                $data = array(
+                    "email" => array(
+                        "template" => "pesanan-diterima.php",
+                        "subject" => "Transaction Activity",
+                        "recipient" => $transaction['customer_email']
+                    ),
+                    "params" => array (
+                        "name" => $transaction['customer_name'],
+                        "transaction_date" => $this->getLocalDateFormat(date('Y-m-d'), true),
+                        "transaction_number" => $transaction['transaction_number'],
+                        "bank" => $bank,
+                        "items" => $items,
+                        "branch" => $branch,
+                        "user" => array (
+                            "name" => $profile['nama'],
+                            "phone" => $profile['telepon']
+                        ),
+                        "receiver" => array(
+                            "name" => $shipping_address['name'],
+                            "phone" => $shipping_address['phone'],
+                            "address" => $shipping_address['address']
+                        ),
+                        "expedition" => array(
+                            "courier" => $transaction['courier'],
+                            "type" => "",
+                            "fee" => $transaction['shipping_fee']
+                        ),
+                        "grand_total" => $transaction['grand_total']
+                    )
+                );
+
+                $this->sendEmail($request, $response, $data); */
+
                 return $response->withJson(["status" => "success", "data" => "1"], 200);
             }
         }
@@ -750,5 +834,187 @@ class TransactionController
         } catch (Exception $e) {
             return false;
         }
+    }
+
+    public function findBranch($code) 
+    {
+        $branch = array(
+            "00000" => "BANDUNG", // "BANDUNG - Lengkong",
+            "00217" => "BEKASI (Mustika Jaya)", //"BEKASI - Mustika Jaya",
+            "00553" => "BOGOR", // "BOGOR - Tanah Sereal",
+            "00539" => "MEDAN", // "MEDAN - Medan Marelan",
+            "00042" => "PELABUHAN RATU", // "PELABUHAN RATU - Pelabuhan/Palabuhan Ratu",
+            "00005" => "SUKABUMI (Cisaat)", // "SUKABUMI - Cisaat",
+            "01340" => "SUKABUMI (Pabuaran)", // "SUKABUMI - Pabuaran",
+            "01838" => "PURWOKERTO", // "PURWOKERTO - Purwokerto Timur",
+            "15666" => "TANGERANG SELATAN", // "TANGERANG SELATAN - Pamulang",
+            "15658" => "DEPOK", // "DEPOK - Sawangan",
+            "15641" => "JAKARTA TIMUR", // "JAKARTA TIMUR - Duren Sawit",
+            "13722" => "BEKASI (Cikarang Selatan)", // "BEKASI - Cikarang Selatan",
+            "02006" => "GARUT" // "GARUT - Tarogong Kidul"
+        );
+
+        return $branch[$code];
+    }
+
+    public function findProfile($email) 
+    {
+        $sql = "SELECT nama, telepon
+                FROM cn_customer 
+                WHERE email=:email";
+
+        $stmt = $this->db->prepare($sql);
+
+        $data = [":email" => $email];
+
+        $stmt->execute($data);
+
+        if ($stmt->rowCount()) {
+            return $stmt->fetch();
+        }
+    }
+
+    public function findShippingAddress($email) 
+    {
+        $sql = "SELECT nama, telepon, provinsi_nama, kota_nama, kecamatan_nama, alamat, kode_pos
+                FROM cn_shipping_address 
+                WHERE customer_id = (
+                    SELECT id 
+                    FROM cn_customer 
+                    WHERE email=:email
+                )";
+
+        $stmt = $this->db->prepare($sql);
+
+        $data = [":email" => $email];
+
+        $stmt->execute($data);
+
+        if ($stmt->rowCount()) {
+
+            $result = $stmt->fetch();
+
+            $shipping_address = array();
+            $shipping_address['name'] = $result['nama'];
+            $shipping_address['phone'] = $result['telepon'];
+            $shipping_address['address'] = "{$result['alamat']} <br />
+                                Kec. {$result['kecamatan_nama']} <br /> 
+                                {$result['kota_nama']}<br />
+                                {$result['provinsi_nama']}";
+
+            return $shipping_address;
+        }
+    }
+
+    public function findItems($transaction_number, $items) 
+    {
+        $product_codes = "";
+
+        foreach($items as $item) {
+            $code = $item['product_code'];
+            $product_codes .= "'${code}'" . ",";
+        }
+
+        $product_codes = rtrim($product_codes, ",");
+
+        $sql = "SELECT cn_transaksi_detail.qty, cn_barang.unit, cn_barang.kode_barang, cn_barang.nama
+                FROM cn_barang 
+                INNER JOIN cn_transaksi_detail
+                ON cn_transaksi_detail.kode_barang = cn_barang.kode_barang
+                WHERE transaksi_id = (
+                        SELECT id 
+                        FROM cn_transaksi 
+                        WHERE nomor_transaksi = '${transaction_number}'
+                    )
+                    AND
+                    cn_transaksi_detail.kode_barang IN (${product_codes})";
+
+        $stmt = $this->db->query($sql);
+
+        if ($stmt->rowCount()) {
+            return $stmt->fetchAll();
+        }
+    }
+
+    public function sendEmail(Request $request, Response $response, $data)
+    {
+        $mailer = $this->mailer;
+        // $content = $this->renderer->render($response, "pesanan-diterima.php", array("name" => "IRUL"));
+        // $send_email = $mailer->sendEmail("choerulsofyanmf@gmail.com", "Activate Account", $content);
+        $mail_content = $this->renderer->render($response, $data["email"]["template"], $data["params"]);
+        $send_email = $mailer->sendEmail($data["email"]["recipient"], $data["email"]["subject"], $mail_content);
+
+        if ($send_email) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function findBank($bank_name) {
+        switch ($bank_name) {
+            case 'BCA':
+                return array(
+                    "name" => "BCA",
+                    "account_owner" => "Rian Setiawan",
+                    "account_number" => "346.277.2308"
+                );
+                break;
+            case 'BNI':
+                return array(
+                    "name" => "BNI",
+                    "account_owner" => "Rian Setiawan",
+                    "account_number" => "30.000.11.238",
+                );
+                break;
+            case 'BRI':
+                return array(
+                    "name" => "BRI",
+                    "account_owner" => "Rian Setiawan",
+                    "account_number" => "0389.01.025423.50.0",
+                );
+                break;
+            case 'MANDIRI':
+                return array(
+                    "name" => "MANDIRI",
+                    "account_owner" => "Rian Setiawan",
+                    "account_number" => "130.05.52.888.888",
+                );
+                break;
+        }
+    }
+
+    function getLocalDateFormat($date, $print_day = false)
+    {
+        $days = array ( 1 =>    'Senin',
+                    'Selasa',
+                    'Rabu',
+                    'Kamis',
+                    'Jumat',
+                    'Sabtu',
+                    'Minggu'
+                );
+                
+        $months = array (1 =>   'Januari',
+                    'Februari',
+                    'Maret',
+                    'April',
+                    'Mei',
+                    'Juni',
+                    'Juli',
+                    'Agustus',
+                    'September',
+                    'Oktober',
+                    'November',
+                    'Desember'
+                );
+        $split 	  = explode('-', $date);
+        $local_date = $split[2] . ' ' . $months[ (int)$split[1] ] . ' ' . $split[0];
+        
+        if ($print_day) {
+            $num = date('N', strtotime($date));
+            return $days[$num] . ', ' . $local_date;
+        }
+        return $local_date;
     }
 }

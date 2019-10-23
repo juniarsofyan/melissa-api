@@ -69,7 +69,9 @@ $container['CartController'] = function ($c) {
 $container['TransactionController'] = function ($c) {
     $db = $c->get("db");
     $ongkir = $c->get("OngkirService");
-    return new App\Controllers\TransactionController($db, $ongkir);
+    $renderer = $c->get("renderer");
+    $mailer = $c->get("Mailer");
+    return new App\Controllers\TransactionController($db, $ongkir, $renderer, $mailer);
 };
 
 $container['WishlistController'] = function ($c) {
