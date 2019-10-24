@@ -33,7 +33,7 @@
 									<td
 										style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;">
 										Dear <?=ucwords($name)?> <br />
-										Pesanan Anda pada hari <?=$transaction_date?> telah kami terima. <br />
+										Pesanan anda pada hari <?=$transaction_date?> telah kami terima. <br />
 									</td>
 								</tr>
 								<tr>
@@ -179,11 +179,10 @@
 									<td style="color: #000; font-family: Arial, sans-serif; font-size: 14px;"
 										width="75%">
 										Catatan: <br />
-										1. <b>Periksa kembali</b> detail pesanan Anda agar tidak terjadi
-										kesalahan.<br />
-										2. Keluhan produk disarankan hubungi Beauty Consultant Bellezkin untuk penanganan lebih lanjut<br />
-										3. Cek pesanan Anda di menu History Order<br />
-										4. Email ini dikirim oleh sistem mohon untuk <b>tidak membalas</b>.<br />
+										1. <b>Periksa kembali</b> detail pesanan anda agar tidak terjadi kesalahan.<br />
+										2. Setelah melakukan pembayaran selanjutnya anda akan menerima email <b>konfirmasi pembayaran</b>.<br />
+										3. Abaikan email ini jika anda telah melakukan pembayaran.<br />
+										4. Email ini dikirim oleh sistem mohon untuk tidak membalas.<br />
 									</td>
 								</tr>
 							</table>

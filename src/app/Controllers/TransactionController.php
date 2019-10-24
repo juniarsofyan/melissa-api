@@ -55,7 +55,7 @@ class TransactionController
 
                         $data = array(
                             "email" => array(
-                                "template" => "pesanan-diterima.php",
+                                "template" => "order-confirmed.php",
                                 "subject" => "Transaction Activity",
                                 "recipient" => $transaction['customer_email']
                             ),
@@ -379,44 +379,26 @@ class TransactionController
 
             if ($this->addOrderHistory($args['transaction_id'], "TRANSFERRED")) {
 
-                /* $branch = $this->findBranch($transaction['sales_branch_code']);
-                $profile = $this->findProfile($transaction['customer_email']);
-                $shipping_address = $this->findShippingAddress($transaction['customer_email']);
-                $items = $this->findItems($transaction['transaction_number'], $transaction['cart']);
-                $bank = $this->findBank($transaction['bank']);
+                $transaction_number = $this->findTransactionNumber($args['transaction_id']);
+                $customer = $this->findCustomer($args['transaction_id']);
+                $date = $this->getLocalDateFormat(date('Y-m-d'), true);
+                $grand_total = $this->findGrandTotal($args['transaction_id']);
 
                 $data = array(
                     "email" => array(
-                        "template" => "pesanan-diterima.php",
+                        "template" => "payment-confirmed.php",
                         "subject" => "Transaction Activity",
-                        "recipient" => $transaction['customer_email']
+                        "recipient" => $customer['email']
                     ),
                     "params" => array (
-                        "name" => $transaction['customer_name'],
-                        "transaction_date" => $this->getLocalDateFormat(date('Y-m-d'), true),
-                        "transaction_number" => $transaction['transaction_number'],
-                        "bank" => $bank,
-                        "items" => $items,
-                        "branch" => $branch,
-                        "user" => array (
-                            "name" => $profile['nama'],
-                            "phone" => $profile['telepon']
-                        ),
-                        "receiver" => array(
-                            "name" => $shipping_address['name'],
-                            "phone" => $shipping_address['phone'],
-                            "address" => $shipping_address['address']
-                        ),
-                        "expedition" => array(
-                            "courier" => $transaction['courier'],
-                            "type" => "",
-                            "fee" => $transaction['shipping_fee']
-                        ),
-                        "grand_total" => $transaction['grand_total']
+                        "name" => ucwords(strtolower($customer['nama'])),
+                        "confirm_payment_date" => $date,
+                        "transaction_number" => $transaction_number,
+                        "grand_total" => $grand_total
                     )
                 );
 
-                $this->sendEmail($request, $response, $data); */
+                $this->sendEmail($request, $response, $data);
 
                 return $response->withJson(["status" => "success", "data" => "1"], 200);
             }
@@ -939,7 +921,7 @@ class TransactionController
     public function sendEmail(Request $request, Response $response, $data)
     {
         $mailer = $this->mailer;
-        // $content = $this->renderer->render($response, "pesanan-diterima.php", array("name" => "IRUL"));
+        // $content = $this->renderer->render($response, "order-confirmed.php", array("name" => "IRUL"));
         // $send_email = $mailer->sendEmail("choerulsofyanmf@gmail.com", "Activate Account", $content);
         $mail_content = $this->renderer->render($response, $data["email"]["template"], $data["params"]);
         $send_email = $mailer->sendEmail($data["email"]["recipient"], $data["email"]["subject"], $mail_content);
@@ -1016,5 +998,56 @@ class TransactionController
             return $days[$num] . ', ' . $local_date;
         }
         return $local_date;
+    }
+
+    public function findGrandTotal($transaction_id)
+    {
+        $sql = "SELECT grand_total
+                FROM cn_transaksi 
+                WHERE id = :id";
+
+        $stmt = $this->db->prepare($sql);
+
+        $data = array(":id" => $transaction_id);
+        
+        $stmt->execute($data);
+
+        if ($stmt->rowCount()) {
+            return $stmt->fetch()['grand_total'];
+        }
+    }
+
+    public function findTransactionNumber($transaction_id)
+    {
+        $sql = "SELECT nomor_transaksi
+                FROM cn_transaksi 
+                WHERE id = :id";
+
+        $stmt = $this->db->prepare($sql);
+
+        $data = array(":id" => $transaction_id);
+        
+        $stmt->execute($data);
+
+        if ($stmt->rowCount()) {
+            return $stmt->fetch()['nomor_transaksi'];
+        }
+    }
+
+    public function findCustomer($transaction_id)
+    {
+        $sql = "SELECT nama, email
+                FROM cn_customer 
+                WHERE id = (SELECT customer_id FROM cn_transaksi WHERE id = :id)";
+
+        $stmt = $this->db->prepare($sql);
+
+        $data = array(":id" => $transaction_id);
+        
+        $stmt->execute($data);
+
+        if ($stmt->rowCount()) {
+            return $stmt->fetch();
+        }
     }
 }
