@@ -1050,4 +1050,121 @@ class TransactionController
             return $stmt->fetch();
         }
     }
+
+    public function deletekExpiredOrders(Request $request, Response $response)
+    {
+        $sql_order_history = "DELETE FROM cn_order_history
+                            WHERE transaksi_id IN (
+                                SELECT *
+                                FROM (
+                                    SELECT id
+                                    FROM cn_transaksi
+                                    WHERE
+                                        DATEDIFF(NOW(), tgl_transaksi) > 1
+                                        AND id NOT IN (
+                                            SELECT DISTINCT transaksi_id
+                                            FROM cn_order_history
+                                            WHERE keterangan IN (
+                                                'TRANSFERRED',
+                                                'SHIPPED',
+                                                'PAYMENT CONFIRMED',
+                                                'PACKED',
+                                                'RECEIVED'
+                                            )
+                                        )
+                                ) as t
+                            );";
+
+        if ($this->db->query($sql_order_history)) {
+            $sql_transaksi_detail = "DELETE FROM cn_transaksi_detail
+                                    WHERE transaksi_id IN (
+                                        SELECT *
+                                        FROM (
+                                            SELECT id
+                                            FROM cn_transaksi
+                                            WHERE
+                                                DATEDIFF(NOW(), tgl_transaksi) > 1
+                                                AND id NOT IN (
+                                                    SELECT DISTINCT transaksi_id
+                                                    FROM cn_order_history
+                                                    WHERE keterangan IN (
+                                                        'TRANSFERRED',
+                                                        'SHIPPED',
+                                                        'PAYMENT CONFIRMED',
+                                                        'PACKED',
+                                                        'RECEIVED'
+                                                    )
+                                                )
+                                        ) as t
+                                    );";
+            
+            if ($this->db->query($sql_transaksi_detail)) {
+                $sql_transaksi_detail = "DELETE FROM cn_transaksi_detail
+                                    WHERE transaksi_id IN (
+                                        SELECT *
+                                        FROM (
+                                            SELECT id
+                                            FROM cn_transaksi
+                                            WHERE
+                                                DATEDIFF(NOW(), tgl_transaksi) > 1
+                                                AND id NOT IN (
+                                                    SELECT DISTINCT transaksi_id
+                                                    FROM cn_order_history
+                                                    WHERE keterangan IN (
+                                                        'TRANSFERRED',
+                                                        'SHIPPED',
+                                                        'PAYMENT CONFIRMED',
+                                                        'PACKED',
+                                                        'RECEIVED'
+                                                    )
+                                                )
+                                        ) as t
+                                    );";
+                
+                if ($this->db->query($sql_transaksi_detail)) {
+                    $sql_transaksi = "DELETE FROM cn_transaksi
+                                    WHERE id IN (
+                                        SELECT *
+                                        FROM (
+                                            SELECT id
+                                            FROM cn_transaksi
+                                            WHERE
+                                                DATEDIFF(NOW(), tgl_transaksi) > 1
+                                                AND id NOT IN (
+                                                    SELECT DISTINCT transaksi_id
+                                                    FROM cn_order_history
+                                                    WHERE keterangan IN (
+                                                        'TRANSFERRED',
+                                                        'SHIPPED',
+                                                        'PAYMENT CONFIRMED',
+                                                        'PACKED',
+                                                        'RECEIVED'
+                                                    )
+                                                )
+                                        ) as t
+                                    );";
+                    
+                    if ($this->db->query($sql_transaksi)) {
+
+                        /* $data = array(
+                            "email" => array(
+                                "template" => "order-cancelled.php",
+                                "subject" => "Transaction Activity",
+                                "recipient" => $customer['email']
+                            ),
+                            "params" => array (
+                                "name" => ucwords(strtolower($customer['nama'])),
+                                "order_cancellation_date" => $date,
+                                "transaction_number" => $transaction_number
+                            )
+                        );
+        
+                        $this->sendEmail($request, $response, $data); */
+        
+                        return $response->withJson(["status" => "success", "data" => "1"], 200);
+                    }
+                }
+            }
+        }
+    }
 }
