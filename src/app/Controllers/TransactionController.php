@@ -1121,6 +1121,50 @@ class TransactionController
                                         ) as t
                                     );";
                 
+                $sql_get_id_transaksi = "SELECT tr.customer_id, cr.nama, tr.nomor_transaksi 
+                                        FROM cn_transaksi tr
+                                        INNER JOIN cn_customer cr
+                                        ON tr.customer_id = cr.id
+                                        WHERE tr.id IN (
+                                            SELECT *
+                                            FROM (
+                                                SELECT id
+                                                FROM cn_transaksi
+                                                WHERE
+                                                    DATEDIFF(NOW(), tgl_transaksi) > 1
+                                                    AND id NOT IN (
+                                                        SELECT DISTINCT transaksi_id
+                                                        FROM cn_order_history
+                                                        WHERE keterangan IN (
+                                                            'TRANSFERRED',
+                                                            'SHIPPED',
+                                                            'PAYMENT CONFIRMED',
+                                                            'PACKED',
+                                                            'RECEIVED'
+                                                        )
+                                                    )
+                                            ) as t
+                                            
+                                        );";
+                    
+                    if ($this->db->query($sql_get_id_transaksi)) {
+                        $data = array(
+                            "email" => array(
+                                "template" => "order-cancelled.php",
+                                "subject" => "Transaction Activity",
+                                "recipient" => $customer['email']
+                            ),
+                            "params" => array (
+                                "name" => ucwords(strtolower($customer['nama'])),
+                                "order_cancellation_date" => $date,
+                                "transaction_number" => $transaction_number
+                            )
+                        );
+        
+                        $this->sendEmail($request, $response, $data);
+                    }
+
+
                 if ($this->db->query($sql_transaksi_detail)) {
                     $sql_transaksi = "DELETE FROM cn_transaksi
                                     WHERE id IN (
@@ -1145,22 +1189,6 @@ class TransactionController
                                     );";
                     
                     if ($this->db->query($sql_transaksi)) {
-
-                        /* $data = array(
-                            "email" => array(
-                                "template" => "order-cancelled.php",
-                                "subject" => "Transaction Activity",
-                                "recipient" => $customer['email']
-                            ),
-                            "params" => array (
-                                "name" => ucwords(strtolower($customer['nama'])),
-                                "order_cancellation_date" => $date,
-                                "transaction_number" => $transaction_number
-                            )
-                        );
-        
-                        $this->sendEmail($request, $response, $data); */
-        
                         return $response->withJson(["status" => "success", "data" => "1"], 200);
                     }
                 }

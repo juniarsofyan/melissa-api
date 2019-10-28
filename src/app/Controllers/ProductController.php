@@ -99,24 +99,55 @@ class ProductController
 
     public function search(Request $request, Response $response, array $args)
     {
-        $sql = "SELECT 
-                    brg.kode_barang, 
-                    brg.nama, 
-                    brg.h_member harga, 
-                    IFNULL(brg.h_member - (brg.h_member * (brg.diskon / 100)), 0) AS harga_diskon,
-                    IFNULL(brg.diskon, 0) as diskon,
-                    brg.pic,
+        $sql = "SELECT
+                    kode_barang,
+                    nama,
+                    harga,
+                    harga_diskon,
+                    diskon,
+                    pic,
                     tipe_kulit,
-                    unit
-                FROM cn_barang brg
-                WHERE MATCH(brg.kode_barang, brg.nama, brg.jenis, brg.tipe_kulit) AGAINST (:keyword IN NATURAL LANGUAGE MODE)
-                    AND brg.h_member > 0 
-                    AND brg.cat = 0
-                ORDER BY brg.nama ASC";
+                    unit,
+                    jenis
+                FROM
+                    (
+                        SELECT
+                            brg.kode_barang,
+                            brg.nama,
+                            brg.h_member harga,
+                            IFNULL(brg.h_member - (brg.h_member * (brg.diskon / 100)), 0) AS harga_diskon,
+                            IFNULL(brg.diskon, 0) as diskon,
+                            brg.pic,
+                            brg.tipe_kulit,
+                            brg.unit,
+                            brg.jenis,
+                            brg.cat
+                        FROM
+                            cn_barang brg
+                        WHERE
+                            brg.kode_barang NOT IN (
+                                SELECT cnb.kode_barang
+                                FROM cn_barang cnb
+                                WHERE 
+                                    (cnb.kode_barang BETWEEN 'SK005' AND 'SK024') OR 
+                                    (cnb.kode_barang BETWEEN '8800A' AND '8800F')
+                            )
+                    ) a
+                WHERE
+                    a.kode_barang LIKE :keyword
+                    OR a.nama LIKE :keyword
+                    OR a.jenis LIKE :keyword
+                    AND a.harga > 0
+                    AND a.cat = 0
+                ORDER BY
+                    a.nama ASC";
 
+        // echo $sql; exit();
+
+        $keyword = $args['keyword'];
 
         $stmt = $this->db->prepare($sql);
-        $data = [":keyword" => $args["keyword"]];
+        $data = [":keyword" => "%${keyword}%"];
         $stmt->execute($data);
 
         $result = $stmt->fetchAll();
