@@ -17,21 +17,21 @@ return [
         ],
 
         // Database Settings
-        'db' => [
-            'host' => 'localhost',
-            'user' => 'root',
-            'pass' => 's3cret',
-            'dbname' => 'sandbox_shop',
-            'driver' => 'mysql'
-        ],
+        // 'db' => [
+        //     'host' => 'localhost',
+        //     'user' => 'root',
+        //     'pass' => 's3cret',
+        //     'dbname' => 'sandbox_shop',
+        //     'driver' => 'mysql'
+        // ],
 
-        /* 'db' => [
+        'db' => [
             'host' => 'mysql.idhostinger.com',
             'user' => 'u590420741_sa',
             'pass' => 'rahasia411',
             'dbname' => 'u590420741_db',
             'driver' => 'mysql'
-        ], */
+        ],
 
         // Mailer Settings
         /*'mailer' => [
