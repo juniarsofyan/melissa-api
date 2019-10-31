@@ -257,4 +257,39 @@ class ProductController
 
         return $response->withJson(["status" => "failed", "data" => "0"], 200);
     }
+
+    public function getProductCodes(Request $request, Response $response)
+    {
+        $sql = "SELECT 
+                    b.kode_barang
+                FROM 
+                    (
+                        SELECT
+                            brg.kode_barang,
+                            brg.h_member harga,
+                            brg.cat
+                        FROM
+                            cn_barang brg
+                        WHERE
+                            brg.kode_barang NOT IN (
+                                SELECT cnb.kode_barang
+                                FROM cn_barang cnb
+                                WHERE 
+                                    (cnb.kode_barang BETWEEN 'SK005' AND 'SK024') OR 
+                                    (cnb.kode_barang BETWEEN '8800A' AND '8800F')
+                            )
+                    ) b
+                WHERE 
+                    b.harga > 0
+                    AND b.cat = 0";
+
+        $stmt = $this->db->query($sql);
+        
+        if ($stmt->rowCount() > 0) {
+            $result = $stmt->fetchAll();
+            return $response->withJson(["status" => "success", "data" => $result], 200);
+        } else {
+            return $response->withJson(["status" => "success", "data" => null], 200);
+        }
+    }
 }

@@ -30,6 +30,7 @@ $app->group('/products', function () use ($app) {
     $app->get("/{category}/count", 'ProductController:countProducts');
 
     $app->get("/series", 'ProductController:series');
+    $app->get("/product-codes", 'ProductController:getProductCodes');
     $app->get("/{type}", 'ProductController:get');
     $app->get("/{type}/related/{product_code}", 'ProductController:related');
     $app->get("/{product_code}/detail", 'ProductController:detail');
