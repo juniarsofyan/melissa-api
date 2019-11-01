@@ -48,7 +48,7 @@ class ProfileController
     {
         $user = $request->getParsedBody();
 
-        $sql = "SELECT nik, nama, tgl_lahir, telepon, email 
+        $sql = "SELECT nik, nama, tgl_lahir, telepon, email, kode_aff 
                 FROM cn_customer 
                 WHERE email=:email";
 
@@ -60,6 +60,11 @@ class ProfileController
 
         if ($stmt->rowCount()) {
             $result = $stmt->fetch();
+
+            if ($result['kode_aff'] == "") {
+                $this->validateAffiliationCode($user['affiliation_code'], $result['email']);
+            }
+
             return $response->withJson(["status" => "success", "data" => $result], 200);
         } else {
             
@@ -239,6 +244,28 @@ class ProfileController
             ":alamat" => $shipping_address['address'],
             ":kode_pos" => $shipping_address['postcode'],
             ":id" => $shipping_address['id']
+        ];
+
+        if ($stmt->execute($data)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function validateAffiliationCode($affiliation_code, $email) 
+    {
+        $sql = "UPDATE cn_customer 
+                SET 
+                    kode_aff=:kode_aff
+                WHERE 
+                    email=:email";
+
+        $stmt = $this->db->prepare($sql);
+
+        $data = [
+            ":kode_aff" => $affiliation_code,
+            ":email" => $email,
         ];
 
         if ($stmt->execute($data)) {
