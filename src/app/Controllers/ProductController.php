@@ -31,8 +31,8 @@ class ProductController
                     brg.kode_barang, 
                     brg.nama, 
                     brg.berat, 
-                    brg.h_member AS harga, 
-                    IFNULL(brg.h_member - (brg.h_member * (brg.diskon / 100)), 0) AS harga_diskon,
+                    brg.h_nomem AS harga, 
+                    IFNULL(brg.h_nomem - (brg.h_nomem * (brg.diskon / 100)), 0) AS harga_diskon,
                     IFNULL(brg.diskon, 0) as diskon,
                     brg.pic,
                     tipe_kulit,
@@ -45,7 +45,7 @@ class ProductController
                         FROM cn_barang
                         WHERE kode_barang BETWEEN 'SK005' AND 'SK024'
                     )
-                    AND brg.h_member > 0
+                    AND brg.h_nomem > 0
                     AND brg.cat = 0
                     AND {$where_clause} = :category
                     LIMIT :limit OFFSET :offset";
@@ -79,7 +79,7 @@ class ProductController
                         FROM cn_barang
                         WHERE kode_barang BETWEEN 'SK005' AND 'SK024'
                     )
-                    AND brg.h_member > 0
+                    AND brg.h_nomem > 0
                     AND brg.cat = 0
                     AND jenis = :category";
 
@@ -114,8 +114,8 @@ class ProductController
                         SELECT
                             brg.kode_barang,
                             brg.nama,
-                            brg.h_member harga,
-                            IFNULL(brg.h_member - (brg.h_member * (brg.diskon / 100)), 0) AS harga_diskon,
+                            brg.h_nomem harga,
+                            IFNULL(brg.h_nomem - (brg.h_nomem * (brg.diskon / 100)), 0) AS harga_diskon,
                             IFNULL(brg.diskon, 0) as diskon,
                             brg.pic,
                             brg.tipe_kulit,
@@ -188,9 +188,9 @@ class ProductController
                     brg.nama, 
                     brg.jenis,
                     brg.berat,
-                    brg.h_member harga, 
+                    brg.h_nomem harga, 
                     brg.h_hpb harga_perhitungan_bonus, 
-                    IFNULL(brg.h_member - (brg.h_member * (brg.diskon / 100)), 0) AS harga_diskon,
+                    IFNULL(brg.h_nomem - (brg.h_nomem * (brg.diskon / 100)), 0) AS harga_diskon,
                     IFNULL(brg.diskon, 0) as diskon,
                     brg.pic,
                     brg.unit,
@@ -204,7 +204,7 @@ class ProductController
                 LEFT JOIN cn_des_pro despro
                     ON brg.kode_barang = despro.kode
                 WHERE 
-                    brg.h_member > 0 
+                    brg.h_nomem > 0 
                     AND brg.cat = 0 
                     AND brg.kode_barang=:kode_barang";
 
@@ -231,12 +231,12 @@ class ProductController
         $sql = "SELECT 
                     brg.kode_barang, 
                     brg.nama, 
-                    brg.h_member harga, 
-                    IFNULL(brg.h_member - (brg.h_member * (brg.diskon / 100)), 0) AS harga_diskon,
+                    brg.h_nomem harga, 
+                    IFNULL(brg.h_nomem - (brg.h_nomem * (brg.diskon / 100)), 0) AS harga_diskon,
                     IFNULL(brg.diskon, 0) as diskon,
                     brg.pic
                 FROM cn_barang brg
-                WHERE brg.h_member > 0
+                WHERE brg.h_nomem > 0
                     AND brg.cat = 0 AND brg.jenis=:jenis
                     AND brg.kode_barang NOT IN (:kode_barang)
                 ORDER BY brg.nama ASC
@@ -266,7 +266,7 @@ class ProductController
                     (
                         SELECT
                             brg.kode_barang,
-                            brg.h_member harga,
+                            brg.h_nomem harga,
                             brg.cat
                         FROM
                             cn_barang brg

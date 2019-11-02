@@ -27,7 +27,7 @@ class PromoController
                         FROM cn_barang
                         WHERE kode_barang BETWEEN 'SK005' AND 'SK024'
                     )
-                    AND brg.h_member > 0
+                    AND brg.h_nomem > 0
                     AND brg.cat = 0";
 
         $stmt = $this->db->prepare($sql);
@@ -42,8 +42,8 @@ class PromoController
                     brg.kode_barang, 
                     brg.nama, 
                     brg.berat, 
-                    brg.h_member AS harga, 
-                    IFNULL(brg.h_member - (brg.h_member * (brg.diskon / 100)), 0) AS harga_diskon,
+                    brg.h_nomem AS harga, 
+                    IFNULL(brg.h_nomem - (brg.h_nomem * (brg.diskon / 100)), 0) AS harga_diskon,
                     IFNULL(brg.diskon, 0) as diskon,
                     brg.pic,
                     tipe_kulit,
@@ -55,7 +55,7 @@ class PromoController
                         FROM cn_barang
                         WHERE kode_barang BETWEEN 'SK005' AND 'SK024'
                     )
-                    AND brg.h_member > 0
+                    AND brg.h_nomem > 0
                     AND brg.cat = 0
                     LIMIT :limit OFFSET :offset";
 
@@ -76,9 +76,9 @@ class PromoController
                     brg.jenis,
                     brg.unit,
                     brg.berat,
-                    brg.h_member harga, 
+                    brg.h_nomem harga, 
                     brg.h_hpb harga_perhitungan_bonus, 
-                    IFNULL(brg.h_member - (brg.h_member * (brg.diskon / 100)), 0) AS harga_diskon,
+                    IFNULL(brg.h_nomem - (brg.h_nomem * (brg.diskon / 100)), 0) AS harga_diskon,
                     IFNULL(brg.diskon, 0) as diskon,
                     brg.pic,
                     despro.des1 AS deskripsi,
@@ -90,9 +90,9 @@ class PromoController
                     brg.kode_barang=:kode_barang";
 
         if ($is_free_item) {
-            $sql .= " AND brg.h_member = 0 AND brg.cat = 1";
+            $sql .= " AND brg.h_nomem = 0 AND brg.cat = 1";
         } else {
-            $sql .= " AND brg.h_member > 0 AND brg.cat = 0";
+            $sql .= " AND brg.h_nomem > 0 AND brg.cat = 0";
         }
 
         $stmt = $this->db->prepare($sql);
@@ -164,8 +164,8 @@ class PromoController
 
                                             if ($date_join < strtotime($promo->join_date_range)) {
 
-                                                if (isset($promo->h_member)) {
-                                                    $current_products[$i]['harga'] = $promo->h_member;
+                                                if (isset($promo->h_nomem)) {
+                                                    $current_products[$i]['harga'] = $promo->h_nomem;
                                                 }
 
                                                 if (isset($promo->vc)) {
@@ -196,8 +196,8 @@ class PromoController
 
                                             if ($date_join >= $join_date_range_start && $date_join <= $join_date_range_end) {
 
-                                                if (isset($promo->h_member)) {
-                                                    $current_products[$i]['harga'] = $promo->h_member;
+                                                if (isset($promo->h_nomem)) {
+                                                    $current_products[$i]['harga'] = $promo->h_nomem;
                                                 }
 
                                                 if (isset($promo->vc)) {
@@ -230,8 +230,8 @@ class PromoController
                                             }
                                         }
                                     } else {
-                                        if (isset($promo->h_member)) {
-                                            $current_products[$i]['harga'] = $promo->h_member;
+                                        if (isset($promo->h_nomem)) {
+                                            $current_products[$i]['harga'] = $promo->h_nomem;
                                         }
 
                                         if (isset($promo->vc)) {
@@ -264,8 +264,8 @@ class PromoController
                                     }
                                 }
                             } else {
-                                if (isset($promo->h_member)) {
-                                    $current_products[$i]['harga'] = $promo->h_member;
+                                if (isset($promo->h_nomem)) {
+                                    $current_products[$i]['harga'] = $promo->h_nomem;
                                 }
 
                                 if (isset($promo->vc)) {
@@ -339,8 +339,8 @@ class PromoController
 
                                             if ($date_join < strtotime($promo->join_date_range)) {
 
-                                                if (isset($promo->h_member)) {
-                                                    $current_products['harga'] = $promo->h_member;
+                                                if (isset($promo->h_nomem)) {
+                                                    $current_products['harga'] = $promo->h_nomem;
                                                 }
 
                                                 if (isset($promo->vc)) {
@@ -371,8 +371,8 @@ class PromoController
 
                                             if ($date_join >= $join_date_range_start && $date_join <= $join_date_range_end) {
 
-                                                if (isset($promo->h_member)) {
-                                                    $current_products['harga'] = $promo->h_member;
+                                                if (isset($promo->h_nomem)) {
+                                                    $current_products['harga'] = $promo->h_nomem;
                                                 }
 
                                                 if (isset($promo->vc)) {
@@ -394,8 +394,8 @@ class PromoController
                                             }
                                         }
                                     } else {
-                                        if (isset($promo->h_member)) {
-                                            $current_products['harga'] = $promo->h_member;
+                                        if (isset($promo->h_nomem)) {
+                                            $current_products['harga'] = $promo->h_nomem;
                                         }
 
                                         if (isset($promo->vc)) {
@@ -428,8 +428,8 @@ class PromoController
                                     }
                                 }
                             } else {
-                                if (isset($promo->h_member)) {
-                                    $current_products['harga'] = $promo->h_member;
+                                if (isset($promo->h_nomem)) {
+                                    $current_products['harga'] = $promo->h_nomem;
                                 }
 
                                 if (isset($promo->vc)) {
