@@ -17,13 +17,13 @@ return [
         ],
 
         // Database Settings
-        /* 'db' => [
-            'host' => 'localhost',
-            'user' => 'root',
-            'pass' => 's3cret',
-            'dbname' => 'dev_belanja',
-            'driver' => 'mysql'
-        ], */
+        // 'db' => [
+        //     'host' => 'localhost',
+        //     'user' => 'root',
+        //     'pass' => 's3cret',
+        //     'dbname' => 'dev_belanja',
+        //     'driver' => 'mysql'
+        // ],
 
         'db' => [
             'host' => 'mysql.idhostinger.com',
