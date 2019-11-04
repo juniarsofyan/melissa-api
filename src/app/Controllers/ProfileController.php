@@ -79,7 +79,7 @@ class ProfileController
 
         $sql = "UPDATE cn_customer 
             SET 
-                nik=:nik,
+                -- nik=:nik,
                 nama=:name,
                 tgl_lahir=:birthdate,
                 telepon=:phone,
@@ -90,7 +90,7 @@ class ProfileController
         $stmt = $this->db->prepare($sql);
 
         $data = [
-            ":nik" => $customer['nik'],
+            // ":nik" => $customer['nik'],
             ":name" => $customer['name'],
             ":birthdate" => $customer['birthdate'],
             ":phone" => $customer['phone'],
