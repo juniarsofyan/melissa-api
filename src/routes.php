@@ -26,7 +26,8 @@ $app->post("/consultation", 'ConsultationController:add');
 $app->get("/ongkirtrans", 'TransactionController:ongkir');
 
 $app->group('/products', function () use ($app) {
-    $app->get("/{category}/{offset}/{limit}", 'ProductController:index');
+    // $app->get("/{category}/{offset}/{limit}", 'ProductController:index');
+    $app->get("/{category}/{offset}/{limit}", 'ProductController:all');
     $app->get("/{category}/count", 'ProductController:countProducts');
 
     $app->get("/series", 'ProductController:series');

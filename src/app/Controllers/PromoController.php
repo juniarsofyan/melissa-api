@@ -15,8 +15,6 @@ class PromoController
         $this->promomanager = $promomanager;
     }
 
-    
-
     public function countProducts()
     {
         $sql = "SELECT count(brg.kode_barang) AS rowcount

@@ -1,7 +1,7 @@
 {
     "rules": [{
             "promo_type": "REGULAR",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "kode_barang": "07002",
             "h_member": 246000,
             "diskon": 50,
@@ -11,7 +11,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "kode_barang": "07004",
             "h_member": 199000,
             "diskon": 25,
@@ -22,9 +22,9 @@
 
         {
             "promo_type": "REGULAR",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "join_date_clause": "before",
-            "join_date_range": "2015-09-16",
+            "join_date_range": "2010-09-30",
             "kode_barang": "88146",
             "h_member": 317000,
             "diskon": 15,
@@ -33,9 +33,9 @@
             "promo_caption": "SERIES PROMO | 15% OFF"
         }, {
             "promo_type": "REGULAR",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "join_date_clause": "before",
-            "join_date_range": "2015-09-16",
+            "join_date_range": "2010-09-30",
             "kode_barang": "88004",
             "h_member": 317000,
             "diskon": 15,
@@ -44,9 +44,9 @@
             "promo_caption": "SERIES PROMO | 15% OFF"
         }, {
             "promo_type": "REGULAR",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "join_date_clause": "before",
-            "join_date_range": "2015-09-16",
+            "join_date_range": "2010-09-30",
             "kode_barang": "88153",
             "h_member": 317000,
             "diskon": 15,
@@ -55,9 +55,9 @@
             "promo_caption": "SERIES PROMO | 15% OFF"
         }, {
             "promo_type": "REGULAR",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "join_date_clause": "before",
-            "join_date_range": "2015-09-16",
+            "join_date_range": "2010-09-30",
             "kode_barang": "88055",
             "h_member": 317000,
             "diskon": 15,
@@ -66,9 +66,9 @@
             "promo_caption": "SERIES PROMO | 15% OFF"
         }, {
             "promo_type": "REGULAR",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "join_date_clause": "before",
-            "join_date_range": "2015-09-16",
+            "join_date_range": "2010-09-30",
             "kode_barang": "88011",
             "h_member": 328000,
             "diskon": 15,
@@ -77,9 +77,9 @@
             "promo_caption": "SERIES PROMO | 15% OFF"
         }, {
             "promo_type": "REGULAR",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "join_date_clause": "before",
-            "join_date_range": "2015-09-16",
+            "join_date_range": "2010-09-30",
             "kode_barang": "88015",
             "h_member": 328000,
             "diskon": 15,
@@ -88,9 +88,9 @@
             "promo_caption": "SERIES PROMO | 15% OFF"
         }, {
             "promo_type": "REGULAR",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "join_date_clause": "before",
-            "join_date_range": "2015-09-16",
+            "join_date_range": "2010-09-30",
             "kode_barang": "88054",
             "h_member": 408000,
             "diskon": 15,
@@ -99,9 +99,9 @@
             "promo_caption": "SERIES PROMO | 15% OFF"
         }, {
             "promo_type": "REGULAR",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "join_date_clause": "before",
-            "join_date_range": "2015-09-16",
+            "join_date_range": "2010-09-30",
             "kode_barang": "88027",
             "h_member": 328000,
             "diskon": 15,
@@ -110,9 +110,9 @@
             "promo_caption": "SERIES PROMO | 15% OFF"
         }, {
             "promo_type": "REGULAR",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "join_date_clause": "before",
-            "join_date_range": "2015-09-16",
+            "join_date_range": "2010-09-30",
             "kode_barang": "88033",
             "h_member": 328000,
             "diskon": 15,
@@ -121,9 +121,9 @@
             "promo_caption": "SERIES PROMO | 15% OFF"
         }, {
             "promo_type": "REGULAR",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "join_date_clause": "before",
-            "join_date_range": "2015-09-16",
+            "join_date_range": "2010-09-30",
             "kode_barang": "88034",
             "h_member": 328000,
             "diskon": 15,
@@ -134,9 +134,9 @@
 
         {
             "promo_type": "REGULAR",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "join_date_clause": "between",
-            "join_date_range": "2015-09-16 - 2019-09-30",
+            "join_date_range": "2010-09-30 - 2022-09-30",
             "kode_barang": "88128",
             "h_member": 317000,
             "diskon": 25,
@@ -146,9 +146,9 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "join_date_clause": "between",
-            "join_date_range": "2015-09-16 - 2019-09-30",
+            "join_date_range": "2010-09-30 - 2022-09-30",
             "kode_barang": "88089",
             "h_member": 317000,
             "diskon": 25,
@@ -158,9 +158,9 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "join_date_clause": "between",
-            "join_date_range": "2015-09-16 - 2019-09-30",
+            "join_date_range": "2010-09-30 - 2022-09-30",
             "kode_barang": "88006",
             "h_member": 317000,
             "diskon": 25,
@@ -170,9 +170,9 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "join_date_clause": "between",
-            "join_date_range": "2015-09-16 - 2019-09-30",
+            "join_date_range": "2010-09-30 - 2022-09-30",
             "kode_barang": "88121",
             "h_member": 317000,
             "diskon": 25,
@@ -182,9 +182,9 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "join_date_clause": "between",
-            "join_date_range": "2015-09-16 - 2019-09-30",
+            "join_date_range": "2010-09-30 - 2022-09-30",
             "kode_barang": "88057",
             "h_member": 317000,
             "diskon": 25,
@@ -194,9 +194,9 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "join_date_clause": "between",
-            "join_date_range": "2015-09-16 - 2019-09-30",
+            "join_date_range": "2010-09-30 - 2022-09-30",
             "kode_barang": "88008",
             "h_member": 317000,
             "diskon": 25,
@@ -206,9 +206,9 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "join_date_clause": "between",
-            "join_date_range": "2015-09-16 - 2019-09-30",
+            "join_date_range": "2010-09-30 - 2022-09-30",
             "kode_barang": "88170",
             "h_member": 328000,
             "diskon": 25,
@@ -218,9 +218,9 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "join_date_clause": "between",
-            "join_date_range": "2015-09-16 - 2019-09-30",
+            "join_date_range": "2010-09-30 - 2022-09-30",
             "kode_barang": "88044",
             "h_member": 408000,
             "diskon": 25,
@@ -230,9 +230,9 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "join_date_clause": "between",
-            "join_date_range": "2015-09-16 - 2019-09-30",
+            "join_date_range": "2010-09-30 - 2022-09-30",
             "kode_barang": "88030",
             "h_member": 328000,
             "diskon": 25,
@@ -242,9 +242,9 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "join_date_clause": "between",
-            "join_date_range": "2015-09-16 - 2019-09-30",
+            "join_date_range": "2010-09-30 - 2022-09-30",
             "kode_barang": "88031",
             "h_member": 328000,
             "diskon": 25,
@@ -253,10 +253,9 @@
             "promo_caption": "SERIES PROMO | 25% OFF"
         },
 
-
         {
             "promo_type": "BUY-SERIES-GET-DISCOUNT",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "kode_barang": [
                 "88001",
                 "88002",
@@ -309,10 +308,9 @@
             "multiply_applies": false
         },
 
-
         {
             "promo_type": "SAF-BUY-GET-DISCOUNT",
-            "period": "2015-09-16 - 2019-09-30",
+            "period": "2010-09-30 - 2022-09-30",
             "kode_barang": [
                 "07002", "07004"
             ],

@@ -81,7 +81,8 @@ $container['WishlistController'] = function ($c) {
 
 $container['ProductController'] = function ($c) {
     $db = $c->get("db");
-    return new App\Controllers\ProductController($db);
+    $promomanager = $c->get("PromoManager");
+    return new App\Controllers\ProductController($db, $promomanager);
 };
 
 $container['PromoController'] = function ($c) {
