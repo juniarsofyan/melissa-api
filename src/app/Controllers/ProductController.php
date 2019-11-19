@@ -368,12 +368,15 @@ class ProductController
                     ) a
                 WHERE
                     a.kode_barang LIKE :keyword
+                    AND a.cat = 0
                     OR a.nama LIKE :keyword
                     OR a.jenis LIKE :keyword
                     AND a.harga > 0
-                    AND a.cat = 0
                 ORDER BY
                     a.nama ASC";
+
+        echo $sql;
+        exit();
 
         // echo $sql; exit();
 
