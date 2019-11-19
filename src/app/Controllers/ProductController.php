@@ -375,8 +375,6 @@ class ProductController
                 ORDER BY
                     a.nama ASC";
 
-        // echo $sql; exit();
-
         $keyword = $args['keyword'];
 
         $stmt = $this->db->prepare($sql);
