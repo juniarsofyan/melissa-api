@@ -104,3 +104,8 @@ $container['OngkirService'] = function ($c) {
 $container['PromoManager'] = function () {
     return new App\Services\PromoManager();
 };
+
+$container['AccessKeyController'] = function ($c) {
+    $db = $c->get("db");
+    return new App\Controllers\AccessKeyController($db);
+};

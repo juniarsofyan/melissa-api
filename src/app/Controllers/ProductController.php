@@ -301,7 +301,11 @@ class ProductController
     // public function countProducts(Request $request, Response $response, array $args)
     public function countProducts($category)
     {
-        // $category = $args["category"];
+        $where_clause = "jenis";
+
+        if ($category == "SERIES" || $category == "series") {
+            $where_clause = "unit";
+        }
 
         $sql = "SELECT 
                     COUNT(brg.kode_barang) as rowcount
@@ -312,9 +316,9 @@ class ProductController
                         FROM cn_barang
                         WHERE kode_barang BETWEEN 'SK005' AND 'SK024'
                     )
-                    AND brg.h_member > 0
+                    AND brg.h_nomem > 0
                     AND brg.cat = 0
-                    AND jenis = :category";
+                    AND {$where_clause} = :category";
 
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue(':category', $category, \PDO::PARAM_STR);
