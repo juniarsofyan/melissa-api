@@ -14,42 +14,12 @@ class ProfileController
         $this->db = $db;
     }
 
-    public function register(Request $request, Response $response)
-    {
-        $profile = $request->getParsedBody();
-
-        $sql = "INSERT INTO cn_customer (
-                    nama, 
-                    email, 
-                    tanggal_registrasi
-                ) VALUES (  
-                    :nama, 
-                    :email, 
-                    :tanggal_registrasi
-                )";
-
-        $stmt = $this->db->prepare($sql);
-
-        $data = [
-            ":nama" => $profile["name"], 
-            ":email" => $profile["email"], 
-            ":tanggal_registrasi" => date('Y-m-d H:i:s')
-        ];
-
-        if ($stmt->execute($data)) {
-            // $last_insert_id = $this->db->lastInsertId();
-            return $response->withJson(["status" => "success", "data" => "1"], 200);
-        }
-
-        return $response->withJson(["status" => "failed", "data" => "0"], 200);
-    }
-
     public function get(Request $request, Response $response)
     {
         $user = $request->getParsedBody();
 
-        $sql = "SELECT nik, nama, tgl_lahir, telepon, email, kode_aff 
-                FROM cn_customer 
+        $sql = "SELECT no_member, nik, nama, tgl_lahir, telp as telepon, email, apro 
+                FROM tb_member 
                 WHERE email=:email";
 
         $stmt = $this->db->prepare($sql);
@@ -60,10 +30,6 @@ class ProfileController
 
         if ($stmt->rowCount()) {
             $result = $stmt->fetch();
-
-            if ($result['kode_aff'] == "") {
-                $this->validateAffiliationCode($user['affiliation_code'], $result['email']);
-            }
 
             return $response->withJson(["status" => "success", "data" => $result], 200);
         } else {
@@ -77,12 +43,12 @@ class ProfileController
     {
         $customer = $request->getParsedBody();
 
-        $sql = "UPDATE cn_customer 
+        $sql = "UPDATE tb_member 
             SET 
                 -- nik=:nik,
                 nama=:name,
                 tgl_lahir=:birthdate,
-                telepon=:phone,
+                telp=:phone,
                 email=:email
             WHERE 
                 email=:email2";
@@ -135,7 +101,7 @@ class ProfileController
                     kecamatan_id, kecamatan_nama, 
                     alamat, kode_pos
                 ) VALUE (
-                    (SELECT id FROM cn_customer WHERE email=:email), 
+                    (SELECT no_member FROM tb_member WHERE email=:email), 
                     :nama, :telp, 
                     :provinsi_id, :provinsi_nama, 
                     :kota_id, :kota_nama, 
@@ -165,7 +131,7 @@ class ProfileController
 
             $sql = "SELECT COUNT(id) AS count_shipping_address 
                     FROM cn_shipping_address 
-                    WHERE customer_id IN (SELECT id FROM cn_customer WHERE email=:email)";
+                    WHERE customer_id IN (SELECT no_member FROM tb_member WHERE email=:email)";
 
             $stmt = $this->db->prepare($sql);
 
@@ -244,28 +210,6 @@ class ProfileController
             ":alamat" => $shipping_address['address'],
             ":kode_pos" => $shipping_address['postcode'],
             ":id" => $shipping_address['id']
-        ];
-
-        if ($stmt->execute($data)) {
-            return true;
-        }
-
-        return false;
-    }
-
-    public function validateAffiliationCode($affiliation_code, $email) 
-    {
-        $sql = "UPDATE cn_customer 
-                SET 
-                    kode_aff=:kode_aff
-                WHERE 
-                    email=:email";
-
-        $stmt = $this->db->prepare($sql);
-
-        $data = [
-            ":kode_aff" => $affiliation_code,
-            ":email" => $email,
         ];
 
         if ($stmt->execute($data)) {

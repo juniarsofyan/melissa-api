@@ -55,9 +55,9 @@ class ShippingAddressController
                     sa.kecamatan_id, sa.kecamatan_nama, 
                     sa.alamat, sa.kode_pos, sa.is_default
                 FROM cn_shipping_address sa
-                INNER JOIN cn_customer cs
-                ON sa.customer_id = cs.id
-                WHERE cs.email=:email
+                INNER JOIN tb_member tm
+                ON sa.customer_id = tm.no_member
+                WHERE tm.email=:email
                 LIMIT 1";
 
             // AND sa.is_default = 1
@@ -115,7 +115,7 @@ class ShippingAddressController
                     kecamatan_id, kecamatan_nama, 
                     alamat, kode_pos
                 ) VALUE (
-                    (SELECT id FROM cn_customer WHERE email=:email), 
+                    (SELECT no_member FROM tb_member WHERE email=:email), 
                     :nama, :telepon, 
                     :provinsi_id, :provinsi_nama, 
                     :kota_id, :kota_nama, 

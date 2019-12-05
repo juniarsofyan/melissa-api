@@ -25,13 +25,15 @@ class AuthController
                     tanggal AS tanggal_register
                 FROM tb_member 
                 WHERE 
-                    md5(email)=:email AND 
+                    email=:email AND 
+                    pwd=:password AND 
                     ver='DONE'";
 
         $stmt = $this->db->prepare($sql);
 
         $data = [
-            ":email" => $credential["email"]
+            ":email" => $credential["email"],
+            ":password" => $credential["password"]
         ];
 
         $stmt->execute($data);

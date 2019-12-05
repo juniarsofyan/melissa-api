@@ -71,7 +71,8 @@ $container['TransactionController'] = function ($c) {
     $ongkir = $c->get("OngkirService");
     $renderer = $c->get("renderer");
     $mailer = $c->get("Mailer");
-    return new App\Controllers\TransactionController($db, $ongkir, $renderer, $mailer);
+    $environment = $c->get('settings')['environment'];
+    return new App\Controllers\TransactionController($db, $ongkir, $renderer, $mailer, $environment);
 };
 
 $container['WishlistController'] = function ($c) {
