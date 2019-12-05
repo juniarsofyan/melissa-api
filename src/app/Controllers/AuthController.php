@@ -22,7 +22,10 @@ class AuthController
         $sql = "SELECT 
                     no_member,
                     nama,
-                    tanggal AS tanggal_register
+                    email,
+                    kota, 
+                    MD5(email) AS 'key',
+                    photo
                 FROM tb_member 
                 WHERE 
                     email=:email AND 
@@ -41,26 +44,8 @@ class AuthController
         $result = $stmt->rowCount();
 
         if ($result > 0) {
-            $customer = $stmt->fetch();
-            $id = $customer['no_member'];
-            $nama = $customer['nama'];
-            $tanggal_register = $customer['tanggal_register'];
-
-            $savedToken = $this->saveLoginToken($id);
-
-            if ($savedToken) {
-
-                $result = array(
-                    "token" => $savedToken,
-                    "no_member" => $id,
-                    "nama" => $nama,
-                    "tanggal_register" => $tanggal_register,
-                );
-
-                return $response->withJson(["status" => "success", "data" => $result], 200);
-            }
-
-            return $response->withJson(["status" => "failed", "data" => "0"], 200);
+            $member = $stmt->fetch();
+            return $response->withJson(["status" => "success", "data" => $member], 200);
         }
 
         return $response->withJson(["status" => "failed", "data" => "0"], 200);
