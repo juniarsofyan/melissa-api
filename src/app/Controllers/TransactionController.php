@@ -50,8 +50,8 @@ class TransactionController
                     if ($substract_sales_branch_qty) {
 
                         $branch = $this->findBranch($transaction['sales_branch_code']);
-                        $profile = $this->findProfile($transaction['customer_id']);
-                        $shipping_address = $this->findShippingAddress($transaction['customer_id']);
+                        $profile = $this->findProfile($transaction['member_id']);
+                        $shipping_address = $this->findShippingAddress($transaction['member_id']);
                         $items = $this->findItems($transaction['transaction_number'], $transaction['cart']);
                         $bank = $this->findBank($transaction['bank']);
 
@@ -121,8 +121,8 @@ class TransactionController
                         ) VALUE (
                             :tgl_transaksi,
                             :nomor_transaksi,
-                            :member_id
-                            :customer_id
+                            :member_id,
+                            :customer_id,
                             :nama,
                             :metode_pengiriman,
                             :kurir,
@@ -157,7 +157,7 @@ class TransactionController
             ":kode_spb"            => $transaction["sales_branch_code"] ? $transaction["sales_branch_code"] : "",
             ":jenis_platform"      => $transaction["shopping_platform"],
             ":bank"                => $transaction["bank"],
-            ":status_transaksi"    => "PLACE ORDER",
+            ":status_transaksi"    => "PLACE ORDER"
         ];
 
         if ($stmt->execute($data)) {
@@ -273,11 +273,11 @@ class TransactionController
                                     cn_transaksi trs
                                 INNER JOIN cn_shipping_address sha
                                     ON trs.shipping_address_id = sha.id
-                                INNER JOIN cn_customer cst
-                                    ON cst.id = trs.customer_id
+                                INNER JOIN tb_member tbm
+                                    ON tbm.no_member = trs.member_id
                                 INNER JOIN cn_order_history odh
                                     ON odh.transaksi_id = trs.id
-                                WHERE cst.email=:email
+                                WHERE tbm.email=:email
                                 GROUP by (transaksi_id)
                                 ORDER BY trs.tgl_transaksi DESC, trs.id DESC";
 
@@ -297,10 +297,10 @@ class TransactionController
                                         cn_order_history odh
                                     INNER JOIN cn_transaksi trs
                                         ON trs.id = odh.transaksi_id
-                                    INNER JOIN cn_customer cst
-                                        ON cst.id = trs.customer_id
+                                    INNER JOIN tb_member tbm
+                                        ON tbm.no_member = trs.member_id
                                     WHERE 
-                                        cst.email=:email
+                                        tbm.email=:email
                                         AND
                                         odh.transaksi_id = trs.id
                                     ORDER BY 
@@ -326,10 +326,10 @@ class TransactionController
                                 ON trs.id = trd.transaksi_id
                             INNER JOIN cn_barang brg
                                 ON brg.kode_barang = trd.kode_barang
-                            INNER JOIN cn_customer cst
-                                ON cst.id = trs.customer_id
+                            INNER JOIN tb_member tbm
+                                ON tbm.no_member = trs.member_id
                             WHERE 
-                                cst.email=:email
+                                tbm.email=:email
                                 and trd.transaksi_id in (SELECT transaksi_id FROM cn_order_history)
                                 order by trs.id";
 
@@ -845,15 +845,15 @@ class TransactionController
         return $branch[$code];
     }
 
-    public function findProfile($id) 
+    public function findProfile($no_member) 
     {
-        $sql = "SELECT nama, telepon
-                FROM cn_customer 
-                WHERE id=:id";
+        $sql = "SELECT nama, telp
+                FROM tb_member 
+                WHERE no_member=:no_member";
 
         $stmt = $this->db->prepare($sql);
 
-        $data = [":id" => $id];
+        $data = [":no_member" => $no_member];
 
         $stmt->execute($data);
 
@@ -862,19 +862,15 @@ class TransactionController
         }
     }
 
-    public function findShippingAddress($id) 
+    public function findShippingAddress($no_member) 
     {
-        $sql = "SELECT nama, telepon, provinsi_nama, kota_nama, kecamatan_nama, alamat, kode_pos
+        $sql = "SELECT nama, telepon, provinsi_nama, kota_nama, kecamatan_nama, alamat, kode_pos 
                 FROM cn_shipping_address 
-                WHERE customer_id = (
-                    SELECT id 
-                    FROM cn_customer 
-                    WHERE id=:id
-                )";
+                WHERE customer_id = :no_member";
 
         $stmt = $this->db->prepare($sql);
 
-        $data = [":id" => $id];
+        $data = [":no_member" => $no_member];
 
         $stmt->execute($data);
 
@@ -1043,8 +1039,8 @@ class TransactionController
     public function findCustomer($transaction_id)
     {
         $sql = "SELECT nama, email
-                FROM cn_customer 
-                WHERE id = (SELECT customer_id FROM cn_transaksi WHERE id = :id)";
+                FROM tb_member 
+                WHERE no_member = (SELECT member_id FROM cn_transaksi WHERE id = :id)";
 
         $stmt = $this->db->prepare($sql);
 
@@ -1127,10 +1123,10 @@ class TransactionController
                                         ) as t
                                     );";
                 
-                $sql_get_id_transaksi = "SELECT tr.customer_id, cr.nama, tr.nomor_transaksi 
+                $sql_get_id_transaksi = "SELECT tr.member_id, tm.nama, tr.nomor_transaksi 
                                         FROM cn_transaksi tr
-                                        INNER JOIN cn_customer cr
-                                        ON tr.customer_id = cr.id
+                                        INNER JOIN tb_member tm
+                                            ON tr.member_id = tm.no_member
                                         WHERE tr.id IN (
                                             SELECT *
                                             FROM (
