@@ -847,7 +847,7 @@ class TransactionController
 
     public function findProfile($no_member) 
     {
-        $sql = "SELECT nama, telp
+        $sql = "SELECT nama, telp as telepon, email
                 FROM tb_member 
                 WHERE no_member=:no_member";
 
