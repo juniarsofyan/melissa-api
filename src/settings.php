@@ -16,14 +16,18 @@ return [
             'level' => \Monolog\Logger::DEBUG,
         ],
 
+        'environment' => [
+            'app_url' => 'http://localhost:3000/'
+        ],
+
         // Database Settings
-        /* 'db' => [
-            'host' => 'localhost',
-            'user' => 'root',
-            'pass' => 's3cret',
-            'dbname' => 'sandbox_shop',
-            'driver' => 'mysql'
-        ], */
+        // 'db' => [
+        //     'host' => 'localhost',
+        //     'user' => 'root',
+        //     'pass' => 's3cret',
+        //     'dbname' => 'sandbox_shop',
+        //     'driver' => 'mysql'
+        // ],
 
         'db' => [
             'host' => 'mysql.idhostinger.com',
