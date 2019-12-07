@@ -94,7 +94,7 @@ class ProfileController
     // SAMPE SINI
     public function addShippingAddress($profile, $shipping_address)
     {
-        $sql = "INSERT INTO cn_shipping_address (
+        $sql = "INSERT INTO cn_cn_shipping_address_member (
                     customer_id, nama, telepon, 
                     provinsi_id, provinsi_nama, 
                     kota_id, kota_nama, 
@@ -130,7 +130,7 @@ class ProfileController
             $last_insert_id = $this->db->lastInsertId();
 
             $sql = "SELECT COUNT(id) AS count_shipping_address 
-                    FROM cn_shipping_address 
+                    FROM cn_shipping_address_member 
                     WHERE customer_id IN (SELECT no_member FROM tb_member WHERE email=:email)";
 
             $stmt = $this->db->prepare($sql);
@@ -153,7 +153,7 @@ class ProfileController
 
     public function setDefault($shipping_address_id)
     {
-        $sql1 = "UPDATE cn_shipping_address 
+        $sql1 = "UPDATE cn_shipping_address_member 
                 SET is_default=0
                 WHERE id NOT IN(:id)";
 
@@ -163,7 +163,7 @@ class ProfileController
 
         if ($stmt1->execute($params1)) {
 
-            $sql2 = "UPDATE cn_shipping_address 
+            $sql2 = "UPDATE cn_shipping_address_member 
                     SET is_default=1
                     WHERE id=:id";
 
@@ -181,7 +181,7 @@ class ProfileController
 
     public function updateShippingAddress($profile, $shipping_address)
     {
-        $sql = "UPDATE cn_shipping_address 
+        $sql = "UPDATE cn_shipping_address_member 
                 SET 
                     nama=:nama, 
                     telepon=:telepon, 

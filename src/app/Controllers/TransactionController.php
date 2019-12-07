@@ -271,7 +271,7 @@ class TransactionController
                                     trs.resi
                                 FROM 
                                     cn_transaksi trs
-                                INNER JOIN cn_shipping_address sha
+                                INNER JOIN cn_shipping_address_member sha
                                     ON trs.shipping_address_id = sha.id
                                 INNER JOIN tb_member tbm
                                     ON tbm.no_member = trs.member_id
@@ -865,7 +865,7 @@ class TransactionController
     public function findShippingAddress($no_member) 
     {
         $sql = "SELECT nama, telepon, provinsi_nama, kota_nama, kecamatan_nama, alamat, kode_pos 
-                FROM cn_shipping_address 
+                FROM cn_shipping_address_member 
                 WHERE customer_id = :no_member";
 
         $stmt = $this->db->prepare($sql);
