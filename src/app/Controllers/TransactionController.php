@@ -397,6 +397,7 @@ class TransactionController
                         "recipient" => $customer['email']
                     ),
                     "params" => array (
+                        "app_url" => $this->environment['app_url'],
                         "name" => ucwords(strtolower($customer['nama'])),
                         "confirm_payment_date" => $date,
                         "transaction_number" => $transaction_number,

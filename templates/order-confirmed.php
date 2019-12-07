@@ -190,12 +190,12 @@
 							<table width="100%" style="color: #000; font-family: Arial, sans-serif; font-size: 14px;">
 								<tr>
 									<td>
-										<a href="http://localhost:3000/order-history" style="background-color: #000; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;">
+										<a href="<?=$app_url?>order-history" style="background-color: #000; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;">
 											&#8592; ORDER HISTORY
 										</a>
 									</td>
 									<td style="float: right;">
-										<a href="http://localhost:3000/order-history" style="background-color: #000; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;">
+										<a href="<?=$app_url?>order-history" style="background-color: #000; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;">
 											CONFIRM PAYMENT &#8594;
 										</a>
 									</td>

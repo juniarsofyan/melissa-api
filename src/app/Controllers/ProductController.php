@@ -339,19 +339,22 @@ class ProductController
         $sql = "SELECT
                     kode_barang,
                     nama,
+                    berat,
                     harga,
                     harga_diskon,
                     diskon,
                     pic,
                     tipe_kulit,
                     unit,
-                    jenis
+                    jenis,
+                    cat
                 FROM
                     (
                         SELECT
                             brg.kode_barang,
                             brg.nama,
-                            brg.h_member harga,
+                            brg.berat,
+                            brg.h_member AS harga,
                             IFNULL(brg.h_member - (brg.h_member * (brg.diskon / 100)), 0) AS harga_diskon,
                             IFNULL(brg.diskon, 0) as diskon,
                             brg.pic,

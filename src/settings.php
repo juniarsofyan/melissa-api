@@ -17,17 +17,18 @@ return [
         ],
 
         'environment' => [
-            'app_url' => 'http://localhost:3000/'
+            // 'app_url' => 'http://localhost:3000/'
+            'app_url' => 'http://melissa.bellezkin.com/login'
         ],
 
         // Database Settings
-        // 'db' => [
-        //     'host' => 'localhost',
-        //     'user' => 'root',
-        //     'pass' => 's3cret',
-        //     'dbname' => 'sandbox_shop',
-        //     'driver' => 'mysql'
-        // ],
+        /* 'db' => [
+            'host' => 'localhost',
+            'user' => 'root',
+            'pass' => 's3cret',
+            'dbname' => 'sandbox_shop',
+            'driver' => 'mysql'
+        ], */
 
         'db' => [
             'host' => 'mysql.idhostinger.com',
