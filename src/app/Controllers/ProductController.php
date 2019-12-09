@@ -133,6 +133,10 @@ class ProductController
                                                     $current_products[$i]['harga_diskon'] = $promo->harga_diskon;
                                                 }
 
+                                                if (isset($promo->poin)) {
+                                                    $current_products[$i]['poin'] = $promo->poin;
+                                                }
+                                                
                                                 if (isset($promo->free_items)) {
                                                     $current_products[$i]['free_items'] = $promo->free_items;
                                                 }
@@ -176,6 +180,10 @@ class ProductController
                                                     $current_products[$i]['harga_diskon'] = $promo->harga_diskon;
                                                 }
 
+                                                if (isset($promo->poin)) {
+                                                    $current_products[$i]['poin'] = $promo->poin;
+                                                }
+
                                                 if (isset($promo->free_items)) {
                                                     $current_products[$i]['free_items'] = $promo->free_items;
                                                 }
@@ -210,6 +218,10 @@ class ProductController
                                             $current_products[$i]['harga_diskon'] = $promo->harga_diskon;
                                         }
 
+                                        if (isset($promo->poin)) {
+                                            $current_products[$i]['poin'] = $promo->poin;
+                                        }
+
                                         if (isset($promo->free_items)) {
                                             $current_products[$i]['free_items'] = $promo->free_items;
                                         }
@@ -241,6 +253,10 @@ class ProductController
 
                                     if (isset($promo->free_items)) {
                                         $current_products[$i]['free_items'] = $promo->free_items;
+                                    }
+
+                                    if (isset($promo->poin)) {
+                                        $current_products[$i]['poin'] = $promo->poin;
                                     }
 
                                     if (isset($promo->multiply_applies)) {
