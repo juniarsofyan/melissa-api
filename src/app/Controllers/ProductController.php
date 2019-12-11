@@ -437,13 +437,189 @@ class ProductController
 
     public function detail(Request $request, Response $response, array $args)
     {
+        // CHECK AVAILABLE PROMOS
+        $raw_data = json_decode($this->promomanager->getAllPromos());
+        $promos = (array) $raw_data->rules;
+        $promos_count = count($promos);
+
+        // IF PROMO AVAILABLE
+        if ($promos_count > 0) {
+
+            // $current_date = strtotime(date('Y-m-d', strtotime('2019-09-01')));
+            $current_date = strtotime(date('Y-m-d'));
+            $current_products = $this->getProductDetail($args["product_code"]);
+
+            foreach ($promos as $promo) {
+                if (!isset($promo->minimum_purchase)) {
+                    if (isset($promo->kode_barang)) {
+                        if ($current_products['kode_barang'] == $promo->kode_barang) {
+
+                            // IF PROMO BASED ON PERIOD
+                            if (isset($promo->period)) {
+
+                                $date_period = explode(" - ", $promo->period);
+                                $date_period_start = strtotime($date_period[0]);
+                                $date_period_end = strtotime($date_period[1]);
+
+                                // IF PROMO PERIOD HAS NOT EXPIRED
+                                if ($current_date >= $date_period_start && $current_date <= $date_period_end) {
+
+                                    // IF PROMO BASED ON JOIN DATE CLAUSE
+                                    if (isset($promo->join_date_clause) && isset($promo->join_date_range)) {
+
+                                        // IF MEMBER JOIN BEFORE CERTAIN DATE
+                                        if ($promo->join_date_clause == "before") {
+
+                                            if ($date_join < strtotime($promo->join_date_range)) {
+
+                                                if (isset($promo->h_member)) {
+                                                    $current_products['harga'] = $promo->h_member;
+                                                }
+
+                                                if (isset($promo->vc)) {
+                                                    $current_products['harga_perhitungan_bonus'] = $promo->vc;
+                                                }
+
+                                                if (isset($promo->diskon)) {
+                                                    $current_products['diskon'] = $promo->diskon;
+                                                    $current_products['harga_diskon'] = $promo->harga_diskon;
+                                                }
+
+                                                if (isset($promo->poin)) {
+                                                    $current_products['poin'] = $promo->poin;
+                                                }
+
+                                                if (isset($promo->free_items)) {
+                                                    $current_products['free_items'] = $promo->free_items;
+                                                }
+
+                                                if (isset($promo->multiply_applies)) {
+                                                    $current_products['multiply_applies'] = $promo->multiply_applies;
+                                                }
+                                            }
+                                        }
+
+                                        // IF MEMBER JOIN BETWEEN TWO DATES
+                                        if ($promo->join_date_clause == "between") {
+
+                                            $join_date_range = explode(" - ", $promo->join_date_range);
+                                            $join_date_range_start = strtotime($join_date_range[0]);
+                                            $join_date_range_end = strtotime($join_date_range[1]);
+
+                                            if ($date_join >= $join_date_range_start && $date_join <= $join_date_range_end) {
+
+                                                if (isset($promo->h_member)) {
+                                                    $current_products['harga'] = $promo->h_member;
+                                                }
+
+                                                if (isset($promo->vc)) {
+                                                    $current_products['harga_perhitungan_bonus'] = $promo->vc;
+                                                }
+
+                                                if (isset($promo->diskon)) {
+                                                    $current_products['diskon'] = $promo->diskon;
+                                                    $current_products['harga_diskon'] = $promo->harga_diskon;
+                                                }
+
+                                                if (isset($promo->poin)) {
+                                                    $current_products['poin'] = $promo->poin;
+                                                }
+
+                                                if (isset($promo->free_items)) {
+                                                    $current_products['free_items'] = $promo->free_items;
+                                                }
+
+                                                if (isset($promo->multiply_applies)) {
+                                                    $current_products['multiply_applies'] = $promo->multiply_applies;
+                                                }
+                                            }
+                                        }
+                                    } else {
+                                        if (isset($promo->h_member)) {
+                                            $current_products['harga'] = $promo->h_member;
+                                        }
+
+                                        if (isset($promo->vc)) {
+                                            $current_products['harga_perhitungan_bonus'] = $promo->vc;
+                                        }
+
+                                        if (isset($promo->diskon)) {
+                                            $current_products['diskon'] = $promo->diskon;
+                                        }
+
+                                        if (isset($promo->harga_diskon)) {
+                                            $current_products['harga_diskon'] = $promo->harga_diskon;
+                                        }
+
+                                        if (isset($promo->poin)) {
+                                            $current_products['poin'] = $promo->poin;
+                                        }
+
+                                        if (isset($promo->free_items)) {
+                                            $current_products['free_items'] = $promo->free_items;
+                                        }
+
+                                        if (isset($promo->multiply_applies)) {
+                                            $current_products['multiply_applies'] = $promo->multiply_applies;
+                                        }
+
+                                        if (isset($promo->promo_caption)) {
+                                            $current_products['promo_caption'] = $promo->promo_caption;
+                                        }
+
+                                        if (isset($promo->promo_tag)) {
+                                            $current_products['promo_tag'] = $promo->promo_tag;
+                                        }
+                                    }
+                                }
+                            } else {
+                                if (isset($promo->h_member)) {
+                                    $current_products['harga'] = $promo->h_member;
+                                }
+
+                                if (isset($promo->vc)) {
+                                    $current_products['harga_perhitungan_bonus'] = $promo->vc;
+                                }
+
+                                if (isset($promo->diskon)) {
+                                    $current_products['diskon'] = $promo->diskon;
+
+                                    if (isset($promo->free_items)) {
+                                        $current_products['free_items'] = $promo->free_items;
+                                    }
+
+                                    if (isset($promo->multiply_applies)) {
+                                        $current_products['multiply_applies'] = $promo->multiply_applies;
+                                    }
+                                }
+
+                                if (isset($promo->harga_diskon)) {
+                                    $current_products['harga_diskon'] = $promo->harga_diskon;
+                                }
+
+                                if (isset($promo->poin)) {
+                                    $current_products['poin'] = $promo->poin;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return $response->withJson(["status" => "success", "data" => $current_products], 200);
+        } else {
+            return $response->withJson(["status" => "success", "data" => "0"], 200);
+        }
+    }
+
+    public function getProductDetail($product_code)
+    {
         $sql = "SELECT 
                     brg.kode_barang, 
                     brg.nama, 
                     brg.jenis,
                     brg.berat,
-                    brg.h_member harga, 
-                    brg.h_hpb harga_perhitungan_bonus, 
+                    brg.h_member AS harga, 
+                    brg.h_hpb AS harga_perhitungan_bonus, 
                     IFNULL(brg.h_member - (brg.h_member * (brg.diskon / 100)), 0) AS harga_diskon,
                     IFNULL(brg.diskon, 0) as diskon,
                     brg.pic,
@@ -464,7 +640,7 @@ class ProductController
 
         $stmt = $this->db->prepare($sql);
 
-        $data = [":kode_barang" => $args["product_code"]];
+        $data = [":kode_barang" => $product_code];
 
         $stmt->execute($data);
 
@@ -474,10 +650,10 @@ class ProductController
             $result['deskripsi'] = preg_replace("/[^a-zA-Z0-9\s]/", "", $result['deskripsi']);
             $result['cara_pakai'] = preg_replace("/[^a-zA-Z0-9\s]/", "", $result['cara_pakai']);
 
-            return $response->withJson(["status" => "success", "data" => $result], 200);
+            return $result;
         }
 
-        return $response->withJson(["status" => "failed", "data" => "0"], 200);
+        return false;
     }
 
     public function related(Request $request, Response $response, array $args)
