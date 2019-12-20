@@ -18,7 +18,7 @@ return [
 
         'environment' => [
             // 'app_url' => 'http://localhost:3000/'
-            'app_url' => 'http://melissa.bellezkin.com/login'
+            'app_url' => 'http://mshop.bellezkin.com/login'
         ],
 
         // Database Settings
