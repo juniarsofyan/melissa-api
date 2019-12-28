@@ -269,8 +269,11 @@ class TransactionController
                                     trs.kode_spb,
                                     trs.status_transaksi,
                                     trs.tgl_transaksi,
-                                    trs.grand_total,
+                                    trs.subtotal,
+                                    trs.shipping_fee,
                                     SUBSTRING(trs.grand_total, -3) as kode_unik_transfer,
+                                    trs.grand_total,
+                                    UPPER(trs.kurir) as kurir,
                                     trs.resi
                                 FROM 
                                     cn_transaksi trs
@@ -325,7 +328,9 @@ class TransactionController
                                 brg.kode_barang,
                                 brg.nama,
                                 brg.pic,
-                                trd.qty
+                                trd.harga,
+                                trd.qty,
+                                trd.subtotal
                             FROM cn_transaksi_detail trd
                             INNER JOIN cn_transaksi trs
                                 ON trs.id = trd.transaksi_id
