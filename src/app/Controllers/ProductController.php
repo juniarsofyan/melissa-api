@@ -334,7 +334,7 @@ class ProductController
                         FROM cn_barang
                         WHERE kode_barang BETWEEN 'SK005' AND 'SK024'
                     )
-                    AND brg.h_nomem > 0
+                    AND brg.h_member > 0
                     AND brg.cat = 0
                     AND {$where_clause} = :category";
 
