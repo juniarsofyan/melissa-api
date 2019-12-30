@@ -25,9 +25,7 @@ class ShippingAddressController
                     sa.kecamatan_id, sa.kecamatan_nama, 
                     sa.alamat, sa.kode_pos, sa.is_default
                 FROM cn_shipping_address_member sa
-                INNER JOIN cn_customer cs
-                ON sa.customer_id = cs.id
-                WHERE cs.email=:email";
+                WHERE customer_id IN (SELECT no_member FROM tb_member WHERE email = :email)";
 
         $stmt = $this->db->prepare($sql);
 
@@ -86,8 +84,6 @@ class ShippingAddressController
                     sa.kecamatan_id, sa.kecamatan_nama, 
                     sa.alamat, sa.kode_pos, sa.is_default
                 FROM cn_shipping_address_member sa
-                INNER JOIN cn_customer cs
-                ON sa.customer_id = cs.id
                 WHERE sa.id=:id";
 
         $stmt = $this->db->prepare($sql);
