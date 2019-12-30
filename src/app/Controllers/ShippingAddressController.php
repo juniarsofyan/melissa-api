@@ -150,9 +150,9 @@ class ShippingAddressController
 
             $result = $stmt->fetch();
 
-            if ($result['count_shipping_address'] < 2) {
+            /* if ($result['count_shipping_address'] < 2) {
                 $this->setDefault($request, $response, array('id' => $last_insert_id));
-            }
+            } */
 
             return $response->withJson(["status" => "success", "data" => "1"], 200);
         }
