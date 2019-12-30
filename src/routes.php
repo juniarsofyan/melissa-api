@@ -61,7 +61,7 @@ $app->group('/shipping-address', function () use ($app) {
     $app->post("/add", 'ShippingAddressController:add');
     $app->post("/{id}/update", 'ShippingAddressController:update');
     $app->get("/delete/{id}", 'ShippingAddressController:delete');
-    $app->get("/set-default/{id}", 'ShippingAddressController:setDefault');
+    $app->post("/set-default", 'ShippingAddressController:setDefault');
 });
 
 $app->group('/cart', function () use ($app) {
