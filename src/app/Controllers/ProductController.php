@@ -89,7 +89,8 @@ class ProductController
         // IF PROMO AVAILABLE
         if ($promos_count > 0) {
 
-            $current_date = strtotime(date('Y-m-d', strtotime('2019-09-01')));
+            // $current_date = strtotime(date('Y-m-d', strtotime('2019-09-01')));
+            $current_date = strtotime(date('Y-m-d'));
             $current_products = $this->getProducts($offset, $limit, $where_clause, $category);
 
             $i = 0;

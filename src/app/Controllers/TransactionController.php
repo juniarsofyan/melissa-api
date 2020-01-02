@@ -273,11 +273,12 @@ class TransactionController
                                     trs.shipping_fee,
                                     SUBSTRING(trs.grand_total, -3) as kode_unik_transfer,
                                     trs.grand_total,
+                                    trs.metode_pengiriman,
                                     UPPER(trs.kurir) as kurir,
                                     trs.resi
                                 FROM 
                                     cn_transaksi trs
-                                INNER JOIN cn_shipping_address_member sha
+                                LEFT JOIN cn_shipping_address_member sha
                                     ON trs.shipping_address_id = sha.id
                                 INNER JOIN tb_member tbm
                                     ON tbm.no_member = trs.member_id
