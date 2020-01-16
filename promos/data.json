@@ -2,7 +2,7 @@
     "rules": [
         {
             "promo_type": "REGULAR",
-            "period": "2020-01-01 - 2020-01-31",
+            "period": "2020-01-16 - 2020-01-31",
             "kode_barang": "88027",
             "h_member": 384000,
             "diskon": 5,
@@ -13,7 +13,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-01-01 - 2020-01-31",
+            "period": "2020-01-16 - 2020-01-31",
             "kode_barang": "88028",
             "h_member": 384000,
             "diskon": 5,
@@ -24,7 +24,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-01-01 - 2020-01-31",
+            "period": "2020-01-16 - 2020-01-31",
             "kode_barang": "88030",
             "h_member": 384000,
             "diskon": 5,
@@ -35,7 +35,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-01-01 - 2020-01-31",
+            "period": "2020-01-16 - 2020-01-31",
             "kode_barang": "88031",
             "h_member": 384000,
             "diskon": 5,
@@ -46,7 +46,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-01-01 - 2020-01-31",
+            "period": "2020-01-16 - 2020-01-31",
             "kode_barang": "88032",
             "h_member": 384000,
             "diskon": 5,
@@ -57,7 +57,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-01-01 - 2020-01-31",
+            "period": "2020-01-16 - 2020-01-31",
             "kode_barang": "88071",
             "h_member": 470000,
             "diskon": 5,
@@ -68,7 +68,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-01-01 - 2020-01-31",
+            "period": "2020-01-16 - 2020-01-31",
             "kode_barang": "88175",
             "h_member": 510000,
             "diskon": 5,
@@ -79,7 +79,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-01-01 - 2020-01-31",
+            "period": "2020-01-16 - 2020-01-31",
             "kode_barang": "88176",
             "h_member": 510000,
             "diskon": 5,
@@ -90,7 +90,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-01-01 - 2020-01-31",
+            "period": "2020-01-16 - 2020-01-31",
             "kode_barang": "88177",
             "h_member": 510000,
             "diskon": 5,
@@ -101,7 +101,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-01-01 - 2020-01-31",
+            "period": "2020-01-16 - 2020-01-31",
             "kode_barang": "88178",
             "h_member": 485000,
             "diskon": 5,
@@ -115,7 +115,7 @@
 
         {
             "promo_type": "REGULAR",
-            "period": "2020-01-01 - 2020-01-31",
+            "period": "2020-01-16 - 2020-01-31",
             "kode_barang": "05005",
             "h_member":  134000,
             "diskon": 35,
@@ -126,7 +126,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-01-01 - 2020-01-31",
+            "period": "2020-01-16 - 2020-01-31",
             "kode_barang": "05006",
             "h_member":  134000,
             "diskon": 35,
@@ -137,7 +137,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-01-01 - 2020-01-31",
+            "period": "2020-01-16 - 2020-01-31",
             "kode_barang": "05007",
             "h_member":  134000,
             "diskon": 35,
@@ -148,7 +148,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-01-01 - 2020-01-31",
+            "period": "2020-01-16 - 2020-01-31",
             "kode_barang": "05010",
             "h_member":  134000,
             "diskon": 35,
@@ -159,7 +159,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-01-01 - 2020-01-31",
+            "period": "2020-01-16 - 2020-01-31",
             "kode_barang": "10001",
             "h_member":  223000,
             "diskon": 30,
