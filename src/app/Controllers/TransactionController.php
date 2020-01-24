@@ -467,7 +467,8 @@ class TransactionController
             array("code" => "15658", "disabled" => false),
             array("code" => "15641", "disabled" => false),
             array("code" => "13722", "disabled" => false),
-            array("code" => "02006", "disabled" => false)
+            array("code" => "02006", "disabled" => false),
+            array("code" => "00985", "disabled" => false)
         );
 
         $sql_ho = "SELECT '00000' as no_member
@@ -852,7 +853,8 @@ class TransactionController
             "15658" => "DEPOK", // "DEPOK - Sawangan",
             "15641" => "JAKARTA TIMUR", // "JAKARTA TIMUR - Duren Sawit",
             "13722" => "BEKASI (Cikarang Selatan)", // "BEKASI - Cikarang Selatan",
-            "02006" => "GARUT" // "GARUT - Tarogong Kidul"
+            "02006" => "GARUT", // "GARUT - Tarogong Kidul"
+            "00985" => "LEBAK" // "GARUT - Tarogong Kidul",
         );
 
         return $branch[$code];
