@@ -456,19 +456,20 @@ class TransactionController
 
         $sales_branch_codes = array(
             array("code" => "00000", "disabled" => false),
+            array("code" => "13722", "disabled" => false),
             array("code" => "00217", "disabled" => false),
             array("code" => "00553", "disabled" => false),
+            array("code" => "05624", "disabled" => false),
+            array("code" => "15658", "disabled" => false),
+            array("code" => "00985", "disabled" => false),
             array("code" => "00539", "disabled" => false),
             array("code" => "00042", "disabled" => false),
+            array("code" => "01835", "disabled" => false),
+            array("code" => "01838", "disabled" => false),
             array("code" => "00005", "disabled" => false),
             array("code" => "01340", "disabled" => false),
-            array("code" => "01838", "disabled" => false),
-            array("code" => "15666", "disabled" => false),
-            array("code" => "15658", "disabled" => false),
-            array("code" => "15641", "disabled" => false),
-            array("code" => "13722", "disabled" => false),
-            array("code" => "02006", "disabled" => false),
-            array("code" => "00985", "disabled" => false)
+            array("code" => "00004", "disabled" => false),
+            array("code" => "14", "disabled" => false)
         );
 
         $sql_ho = "SELECT '00000' as no_member
@@ -841,20 +842,21 @@ class TransactionController
     public function findBranch($code) 
     {
         $branch = array(
-            "00000" => "BANDUNG", // "BANDUNG - Lengkong",
-            "00217" => "BEKASI (Mustika Jaya)", //"BEKASI - Mustika Jaya",
+            "00000" => "BANDUNG (Lengkong)", // "BANDUNG - Lengkong",
+            "14" => "BANDUNG (Panyileukan)", // "BANDUNG - Panyileukan",
+            "13722" => "BEKASI (Cikarang Selatan)", // "BEKASI - Cikarang Selatan",
+            "00217" => "BEKASI (Mustika Jaya)", // "BEKASI - Mustika Jaya",
             "00553" => "BOGOR", // "BOGOR - Tanah Sereal",
+            "05624" => "CIANJUR (Cikalong)", // "CIANJUR - Cikalong",
+            "15658" => "DEPOK", // "DEPOK - Sawangan",
+            "00985" => "LEBAK", // "LEBAK - Cilograng",
             "00539" => "MEDAN", // "MEDAN - Medan Marelan",
             "00042" => "PELABUHAN RATU", // "PELABUHAN RATU - Pelabuhan/Palabuhan Ratu",
+            "01835" => "PURWAKARTA", // "PURWAKARTA - Bojong",
+            "01838" => "PURWOKERTO", // "PURWOKERTO - Purwokerto Timur",
             "00005" => "SUKABUMI (Cisaat)", // "SUKABUMI - Cisaat",
             "01340" => "SUKABUMI (Pabuaran)", // "SUKABUMI - Pabuaran",
-            "01838" => "PURWOKERTO", // "PURWOKERTO - Purwokerto Timur",
-            "15666" => "TANGERANG SELATAN", // "TANGERANG SELATAN - Pamulang",
-            "15658" => "DEPOK", // "DEPOK - Sawangan",
-            "15641" => "JAKARTA TIMUR", // "JAKARTA TIMUR - Duren Sawit",
-            "13722" => "BEKASI (Cikarang Selatan)", // "BEKASI - Cikarang Selatan",
-            "02006" => "GARUT", // "GARUT - Tarogong Kidul"
-            "00985" => "LEBAK" // "GARUT - Tarogong Kidul",
+            "00004" => "TANGERANG SELATAN" // "TANGERANG SELATAN - Pondok Aren"
         );
 
         return $branch[$code];
