@@ -167,6 +167,206 @@
             "vc": 142727,
             "poin": 19,
             "promo_caption": "JANUARY PROMO | 30% OFF"
+        },
+
+        
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-01-29 - 2020-01-31",
+            "kode_barang": "02002",
+            "h_member":   45000,
+            "diskon": 80,
+            "harga_diskon": 36000,
+            "vc": 32727,
+            "poin": 4,
+            "promo_caption": "EXTRA PROMO | 80% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-01-29 - 2020-01-31",
+            "kode_barang": "02005",
+            "h_member":  84000,
+            "diskon": 80,
+            "harga_diskon": 68000,
+            "vc": 61818,
+            "poin": 8,
+            "promo_caption": "EXTRA PROMO | 80% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-01-29 - 2020-01-31",
+            "kode_barang": "05008",
+            "h_member":  134000,
+            "diskon": 70,
+            "harga_diskon": 94000,
+            "vc": 85455,
+            "poin": 11,
+            "promo_caption": "EXTRA PROMO | 70% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-01-29 - 2020-01-31",
+            "kode_barang": "05009",
+            "h_member": 134000,
+            "diskon": 70,
+            "harga_diskon": 94000,
+            "vc": 85455,
+            "poin": 11,
+            "promo_caption": "EXTRA PROMO | 70% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-01-29 - 2020-01-31",
+            "kode_barang": "07004",
+            "h_member": 199000,
+            "diskon": 85,
+            "harga_diskon": 170000,
+            "vc": 154545,
+            "poin": 20,
+            "promo_caption": "EXTRA PROMO | 85% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-01-29 - 2020-01-31",
+            "kode_barang": "10002",
+            "h_member": 186000,
+            "diskon": 80,
+            "harga_diskon": 149000,
+            "vc": 135455,
+            "poin": 18,
+            "promo_caption": "EXTRA PROMO | 80% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-01-29 - 2020-01-31",
+            "kode_barang": "10003",
+            "h_member":  186000,
+            "diskon": 80,
+            "harga_diskon": 149000,
+            "vc": 135455,
+            "poin": 18,
+            "promo_caption": "EXTRA PROMO | 80% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-01-29 - 2020-01-31",
+            "kode_barang": "12001",
+            "h_member":  143000,
+            "diskon": 80,
+            "harga_diskon": 115000,
+            "vc": 104545,
+            "poin": 13,
+            "promo_caption": "EXTRA PROMO | 80% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-01-29 - 2020-01-31",
+            "kode_barang": "12002",
+            "h_member":  143000,
+            "diskon": 80,
+            "harga_diskon": 115000,
+            "vc": 104545,
+            "poin": 13,
+            "promo_caption": "EXTRA PROMO | 80% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-01-29 - 2020-01-31",
+            "kode_barang": "16008",
+            "h_member":  120000,
+            "diskon": 85,
+            "harga_diskon": 102000,
+            "vc": 92727,
+            "poin": 12,
+            "promo_caption": "EXTRA PROMO | 85% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-01-29 - 2020-01-31",
+            "kode_barang": "16009",
+            "h_member":  137000,
+            "diskon": 80,
+            "harga_diskon": 110000,
+            "vc": 100000,
+            "poin": 13,
+            "promo_caption": "EXTRA PROMO | 80% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-01-29 - 2020-01-31",
+            "kode_barang": "16015",
+            "h_member":  158000,
+            "diskon": 85,
+            "harga_diskon": 135000,
+            "vc": 122727,
+            "poin": 16,
+            "promo_caption": "EXTRA PROMO | 85% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-01-29 - 2020-01-31",
+            "kode_barang": "17001",
+            "h_member":  172000,
+            "diskon": 80,
+            "harga_diskon": 138000,
+            "vc": 125455,
+            "poin": 16,
+            "promo_caption": "EXTRA PROMO | 80% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-01-29 - 2020-01-31",
+            "kode_barang": "17002",
+            "h_member":  158000,
+            "diskon": 80,
+            "harga_diskon": 127000,
+            "vc": 115455,
+            "poin": 15,
+            "promo_caption": "EXTRA PROMO | 80% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-01-29 - 2020-01-31",
+            "kode_barang": "19012",
+            "h_member":  100000,
+            "diskon": 80,
+            "harga_diskon": 80000,
+            "vc": 72727,
+            "poin": 9,
+            "promo_caption": "EXTRA PROMO | 80% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-01-29 - 2020-01-31",
+            "kode_barang": "19013",
+            "h_member":  120000,
+            "diskon": 80,
+            "harga_diskon": 96000,
+            "vc": 87273,
+            "poin": 11,
+            "promo_caption": "EXTRA PROMO | 80% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-01-29 - 2020-01-31",
+            "kode_barang": "19014",
+            "h_member":  100000,
+            "diskon": 80,
+            "harga_diskon": 80000,
+            "vc": 72727,
+            "poin": 9,
+            "promo_caption": "EXTRA PROMO | 80% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-01-29 - 2020-01-31",
+            "kode_barang": "19015",
+            "h_member":  143000,
+            "diskon": 70,
+            "harga_diskon": 101000,
+            "vc": 91818,
+            "poin": 12,
+            "promo_caption": "EXTRA PROMO | 70% OFF"
         }
     ]
 }
