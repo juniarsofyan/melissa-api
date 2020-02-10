@@ -1033,4 +1033,24 @@ class PromoController
             return $response->withJson(["status" => "failed", "data" => "0"], 200);
         }
     }
+
+    public function checkMinimumPointGetDiscount(Request $request, Response $response)
+    {
+        $options = $request->getParsedBody();
+        $no_member = $options['no_member'];
+        
+        $sql = "SELECT COUNT(member_id) AS rowcount FROM cn_transaksi WHERE member_id = :no_member AND note LIKE '%MINIMUM-POINT-GET-DISCOUNT%'";
+
+        $stmt = $this->db->prepare($sql);
+
+        $data = [":no_member" => $no_member];
+
+        $stmt->execute($data);
+
+        if ($stmt->fetch()['rowcount'] == 0) {
+            return $response->withJson(["status" => "success", "data" => true], 200);
+        }
+
+        return $response->withJson(["status" => "success", "data" => false], 200);
+    }
 }

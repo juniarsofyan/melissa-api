@@ -100,6 +100,7 @@ $app->group('/ongkir', function () use ($app) {
 });
 
 $app->group('/promo', function () use ($app) {
+    $app->post("/minimum-point/get-discount", 'PromoController:checkMinimumPointGetDiscount');
     $app->get("/count", 'PromoController:countProducts');
     $app->get("/items/{offset}/{limit}", 'PromoController:all');
     $app->post("/items", 'PromoController:all');
