@@ -2,171 +2,113 @@
     "rules": [
         {
             "promo_type": "REGULAR",
-            "period": "2020-02-01 - 2020-02-15",
-            "kode_barang": "88002",
-            "h_member": 338000,
+            "period": "2020-02-16 - 2020-02-29",
+            "kode_barang": "88062",
+            "h_member": 329000,
             "diskon": 15,
-            "harga_diskon": 288000,
-            "vc": 261818,
-            "poin": 34,
-            "promo_caption": "FEBRUARY PROMO | 15% OFF"
+            "harga_diskon": 280000,
+            "vc": 254545,
+            "poin": 33,
+            "promo_caption": "FEBRUARY PROMO | 33% OFF"
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-02-01 - 2020-02-15",
-            "kode_barang": "88003",
-            "h_member": 338000,
+            "period": "2020-02-16 - 2020-02-29",
+            "kode_barang": "88020",
+            "h_member": 329000,
+            "diskon": 15,
+            "harga_diskon": 280000,
+            "vc": 254545,
+            "poin": 33,
+            "promo_caption": "FEBRUARY PROMO | 33% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-02-16 - 2020-02-29",
+            "kode_barang": "88097",
+            "h_member": 329000,
+            "diskon": 15,
+            "harga_diskon": 280000,
+            "vc": 254545,
+            "poin": 33,
+            "promo_caption": "FEBRUARY PROMO | 33% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-02-16 - 2020-02-29",
+            "kode_barang": "88021",
+            "h_member": 329000,
+            "diskon": 15,
+            "harga_diskon": 280000,
+            "vc": 254545,
+            "poin": 33,
+            "promo_caption": "FEBRUARY PROMO | 33% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-02-16 - 2020-02-29",
+            "kode_barang": "88024",
+            "h_member": 329000,
             "diskon": 20,
-            "harga_diskon": 271000,
-            "vc": 246364,
+            "harga_diskon": 264000,
+            "vc": 240000,
             "poin": 32,
-            "promo_caption": "FEBRUARY PROMO | 20% OFF"
+            "promo_caption": "FEBRUARY PROMO | 32% OFF"
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-02-01 - 2020-02-15",
-            "kode_barang": "88073",
-            "h_member": 338000,
+            "period": "2020-02-16 - 2020-02-29",
+            "kode_barang": "88115",
+            "h_member": 384000,
             "diskon": 15,
-            "harga_diskon": 288000,
-            "vc": 261818,
-            "poin": 34,
-            "promo_caption": "FEBRUARY PROMO | 15% OFF"
+            "harga_diskon": 327000,
+            "vc": 297273,
+            "poin": 39,
+            "promo_caption": "FEBRUARY PROMO | 39% OFF"
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-02-01 - 2020-02-15",
-            "kode_barang": "88065",
-            "h_member": 338000,
+            "period": "2020-02-16 - 2020-02-29",
+            "kode_barang": "88030",
+            "h_member": 384000,
+            "diskon": 20,
+            "harga_diskon": 308000,
+            "vc": 280000,
+            "poin": 37,
+            "promo_caption": "FEBRUARY PROMO | 37% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-02-16 - 2020-02-29",
+            "kode_barang": "88031",
+            "h_member": 384000,
+            "diskon": 20,
+            "harga_diskon": 308000,
+            "vc": 280000,
+            "poin": 37,
+            "promo_caption": "FEBRUARY PROMO | 37% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-02-16 - 2020-02-29",
+            "kode_barang": "88180",
+            "h_member": 384000,
             "diskon": 15,
-            "harga_diskon": 288000,
-            "vc": 261818,
-            "poin": 34,
-            "promo_caption": "FEBRUARY PROMO | 15% OFF"
+            "harga_diskon": 327000,
+            "vc": 297273,
+            "poin": 39,
+            "promo_caption": "FEBRUARY PROMO | 39% OFF"
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-02-01 - 2020-02-15",
-            "kode_barang": "88001",
-            "h_member": 338000,
+            "period": "2020-02-16 - 2020-02-29",
+            "kode_barang": "88056",
+            "h_member": 384000,
             "diskon": 15,
-            "harga_diskon": 288000,
-            "vc": 261818,
-            "poin": 34,
-            "promo_caption": "FEBRUARY PROMO | 15% OFF"
-        },
-        {
-            "promo_type": "REGULAR",
-            "period": "2020-02-01 - 2020-02-15",
-            "kode_barang": "88006",
-            "h_member": 380000,
-            "diskon": 20,
-            "harga_diskon": 304000,
-            "vc": 276364,
-            "poin": 36,
-            "promo_caption": "FEBRUARY PROMO | 20% OFF"
-        },
-        {
-            "promo_type": "REGULAR",
-            "period": "2020-02-01 - 2020-02-15",
-            "kode_barang": "88055",
-            "h_member": 380000,
-            "diskon": 20,
-            "harga_diskon": 304000,
-            "vc": 276364,
-            "poin": 36,
-            "promo_caption": "FEBRUARY PROMO | 20% OFF"
-        },
-        {
-            "promo_type": "REGULAR",
-            "period": "2020-02-01 - 2020-02-15",
-            "kode_barang": "88083",
-            "h_member": 380000,
-            "diskon": 20,
-            "harga_diskon": 304000,
-            "vc": 276364,
-            "poin": 36,
-            "promo_caption": "FEBRUARY PROMO | 20% OFF"
-        },
-        {
-            "promo_type": "REGULAR",
-            "period": "2020-02-01 - 2020-02-15",
-            "kode_barang": "88057",
-            "h_member": 380000,
-            "diskon": 20,
-            "harga_diskon": 304000,
-            "vc": 276364,
-            "poin": 36,
-            "promo_caption": "FEBRUARY PROMO | 20% OFF"
-        },
-        {
-            "promo_type": "REGULAR",
-            "period": "2020-02-01 - 2020-02-15",
-            "kode_barang": "88009",
-            "h_member": 380000,
-            "diskon": 20,
-            "harga_diskon": 304000,
-            "vc": 276364,
-            "poin": 36,
-            "promo_caption": "FEBRUARY PROMO | 20% OFF"
-        },
-
-
-
-        {
-            "promo_type": "REGULAR",
-            "period": "2020-02-01 - 2020-02-15",
-            "kode_barang": "14001",
-            "h_member":  138000,
-            "diskon": 30,
-            "harga_diskon": 97000,
-            "vc": 88182,
-            "poin": 11,
-            "promo_caption": "FEBRUARY PROMO | 30% OFF"
-        },
-        {
-            "promo_type": "REGULAR",
-            "period": "2020-02-01 - 2020-02-15",
-            "kode_barang": "14002",
-            "h_member":  123000,
-            "diskon": 30,
-            "harga_diskon": 87000,
-            "vc": 79091,
-            "poin": 10,
-            "promo_caption": "FEBRUARY PROMO | 30% OFF"
-        },
-        {
-            "promo_type": "REGULAR",
-            "period": "2020-02-01 - 2020-02-15",
-            "kode_barang": "12001",
-            "h_member":  143000,
-            "diskon": 30,
-            "harga_diskon": 101000,
-            "vc": 91818,
-            "poin": 12,
-            "promo_caption": "FEBRUARY PROMO | 30% OFF"
-        },
-        {
-            "promo_type": "REGULAR",
-            "period": "2020-02-01 - 2020-02-15",
-            "kode_barang": "12002",
-            "h_member":  143000,
-            "diskon": 30,
-            "harga_diskon": 101000,
-            "vc": 91818,
-            "poin": 12,
-            "promo_caption": "FEBRUARY PROMO | 30% OFF"
-        },
-        {
-            "promo_type": "REGULAR",
-            "period": "2020-02-01 - 2020-02-15",
-            "kode_barang": "07002",
-            "h_member":  246000,
-            "diskon": 30,
-            "harga_diskon": 173000,
-            "vc": 157273,
-            "poin": 20,
-            "promo_caption": "FEBRUARY PROMO | 30% OFF"
+            "harga_diskon": 327000,
+            "vc": 297273,
+            "poin": 39,
+            "promo_caption": "FEBRUARY PROMO | 39% OFF"
         }
     ]
 }
