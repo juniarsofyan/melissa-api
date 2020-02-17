@@ -1039,7 +1039,7 @@ class PromoController
         $options = $request->getParsedBody();
         $no_member = $options['no_member'];
         
-        $sql = "SELECT COUNT(member_id) AS rowcount FROM cn_transaksi WHERE member_id = :no_member AND note LIKE '%MINIMUM-POINT-GET-DISCOUNT%'";
+        $sql = "SELECT COUNT(member_id) AS rowcount FROM cn_transaksi WHERE member_id = :no_member AND note LIKE '%MINIMUM-POINT-GET-DISCOUNT-16-29-FEB%'";
 
         $stmt = $this->db->prepare($sql);
 
