@@ -3,35 +3,13 @@
         {
             "promo_type": "REGULAR",
             "period": "2020-04-01 - 2020-04-15",
-            "kode_barang": "88001",
-            "h_member": 338000,
-            "diskon": 25,
-            "harga_diskon": 254000,
-            "vc": 230909,
-            "poin": 24,
-            "promo_caption": "PROMO MARET | 25% OFF"
-        },
-        {
-            "promo_type": "REGULAR",
-            "period": "2020-04-01 - 2020-04-15",
-            "kode_barang": "88002",
-            "h_member": 338000,
-            "diskon": 20,
-            "harga_diskon": 271000,
-            "vc": 246364,
-            "poin": 29,
-            "promo_caption": "PROMO MARET | 20% OFF"
-        },
-        {
-            "promo_type": "REGULAR",
-            "period": "2020-04-01 - 2020-04-15",
-            "kode_barang": "88003",
-            "h_member": 338000,
-            "diskon": 20,
-            "harga_diskon": 271000,
-            "vc": 246364,
-            "poin": 29,
-            "promo_caption": "PROMO MARET | 20% OFF"
+            "kode_barang": "88170",
+            "h_member": 415000,
+            "diskon": 15,
+            "harga_diskon": 353000,
+            "vc": 320909,
+            "poin": 42,
+            "promo_caption": "PROMO MARET | 15% OFF"
         },
         {
             "promo_type": "REGULAR",
@@ -80,13 +58,24 @@
         {
             "promo_type": "REGULAR",
             "period": "2020-04-01 - 2020-04-15",
-            "kode_barang": "88065",
+            "kode_barang": "88002",
             "h_member": 338000,
-            "diskon": 25,
-            "harga_diskon": 254000,
-            "vc": 230909,
-            "poin": 21,
-            "promo_caption": "PROMO MARET | 25% OFF"
+            "diskon": 20,
+            "harga_diskon": 271000,
+            "vc": 246364,
+            "poin": 29,
+            "promo_caption": "PROMO MARET | 20% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-04-01 - 2020-04-15",
+            "kode_barang": "88003",
+            "h_member": 338000,
+            "diskon": 20,
+            "harga_diskon": 271000,
+            "vc": 246364,
+            "poin": 29,
+            "promo_caption": "PROMO MARET | 20% OFF"
         },
         {
             "promo_type": "REGULAR",
@@ -102,13 +91,24 @@
         {
             "promo_type": "REGULAR",
             "period": "2020-04-01 - 2020-04-15",
-            "kode_barang": "88170",
-            "h_member": 415000,
-            "diskon": 15,
-            "harga_diskon": 353000,
-            "vc": 320909,
-            "poin": 42,
-            "promo_caption": "PROMO MARET | 15% OFF"
+            "kode_barang": "88065",
+            "h_member": 338000,
+            "diskon": 25,
+            "harga_diskon": 254000,
+            "vc": 230909,
+            "poin": 21,
+            "promo_caption": "PROMO MARET | 25% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-04-01 - 2020-04-15",
+            "kode_barang": "88001",
+            "h_member": 338000,
+            "diskon": 25,
+            "harga_diskon": 254000,
+            "vc": 230909,
+            "poin": 24,
+            "promo_caption": "PROMO MARET | 25% OFF"
         }
     ]
 }
