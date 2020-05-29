@@ -224,6 +224,208 @@
             "period": "2020-05-16 - 2020-05-31",
             "kode_barang": "88170",
             "poin": 47
+        },
+
+
+
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "01001",
+            "h_member": 72000,
+            "vc": 65455,
+            "poin": 8
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "02004",
+            "h_member": 115000,
+            "vc": 104545,
+            "poin": 13
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "07002",
+            "h_member": 246000,
+            "vc": 223636,
+            "poin": 29
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "07003",
+            "h_member": 246000,
+            "vc": 223636,
+            "poin": 29
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "08001",
+            "h_member": 91000,
+            "vc": 82727,
+            "poin": 11
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "09001",
+            "h_member": 152000,
+            "vc": 138182,
+            "poin": 18
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "10001",
+            "h_member": 223000,
+            "vc": 202727,
+            "poin": 27
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "10002",
+            "h_member": 186000,
+            "vc": 169091,
+            "poin": 22
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "10003",
+            "h_member": 186000,
+            "vc": 169091,
+            "poin": 22
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "10004",
+            "h_member": 112000,
+            "vc": 101818,
+            "poin": 13
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "11001",
+            "h_member": 211000,
+            "vc": 191818,
+            "poin": 25
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "12002",
+            "h_member": 143000,
+            "vc": 130000,
+            "poin": 17
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "12003",
+            "h_member": 108000,
+            "vc": 98182,
+            "poin": 13
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "12004",
+            "h_member": 196000,
+            "vc": 178182,
+            "poin": 23
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "14001",
+            "h_member": 138000,
+            "vc": 125455,
+            "poin": 16
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "14002",
+            "h_member": 123000,
+            "vc": 111818,
+            "poin": 14
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "15001",
+            "h_member": 98000,
+            "vc": 89091,
+            "poin": 11
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "16006",
+            "h_member": 114000,
+            "vc": 103636,
+            "poin": 13
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "19004",
+            "h_member": 107000,
+            "vc": 97273,
+            "poin": 12
+        },
+
+
+        
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "88020",
+            "h_member": 329000,
+            "diskon": 25,
+            "harga_diskon": 247000,
+            "vc": 224545,
+            "poin": 25,
+            "promo_caption": "PROMO MAY | 25% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "88021",
+            "h_member": 329000,
+            "diskon": 25,
+            "harga_diskon": 247000,
+            "vc": 224545,
+            "poin": 25,
+            "promo_caption": "PROMO MAY | 25% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "88024",
+            "h_member": 329000,
+            "diskon": 25,
+            "harga_diskon": 247000,
+            "vc": 224545,
+            "poin": 25,
+            "promo_caption": "PROMO MAY | 25% OFF"
+        },
+        {
+            "promo_type": "REGULAR",
+            "period": "2020-05-29 - 2020-05-31",
+            "kode_barang": "88083",
+            "h_member": 380000,
+            "diskon": 20,
+            "harga_diskon": 304000,
+            "vc": 276364,
+            "poin": 31,
+            "promo_caption": "PROMO MAY | 20% OFF"
         }
     ]
 }
