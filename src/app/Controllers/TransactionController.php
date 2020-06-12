@@ -298,7 +298,7 @@ class TransactionController
                 $sql_order_progress = "SELECT
                                         odh.transaksi_id,
                                         odh.id,
-                                        DATE_FORMAT (odh.tanggal, '%d-%m-%Y') as tanggal,
+                                        DATE_FORMAT(odh.tanggal, '%d-%m-%Y') as tanggal,
                                         odh.keterangan
                                     FROM 
                                         cn_order_history odh
