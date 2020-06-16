@@ -33,7 +33,7 @@ return [
         'db' => [
             'host' => 'mysql.idhostinger.com',
             'user' => 'u590420741_sa',
-            'pass' => 'rahasia411',
+            'pass' => 'RahasiaBLZ88',
             'dbname' => 'u590420741_db',
             'driver' => 'mysql'
         ],
