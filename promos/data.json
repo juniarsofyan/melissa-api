@@ -2,7 +2,7 @@
     "rules": [
         {
             "promo_type": "REGULAR",
-            "period": "2020-06-01 - 2020-06-30",
+            "period": "2020-06-16 - 2020-06-30",
             "kode_barang": "88043",
             "h_member": 510000,
             "diskon": 20,
@@ -13,7 +13,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-06-01 - 2020-06-30",
+            "period": "2020-06-16 - 2020-06-30",
             "kode_barang": "88178",
             "h_member": 485000,
             "diskon": 20,
@@ -24,7 +24,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-06-01 - 2020-06-30",
+            "period": "2020-06-16 - 2020-06-30",
             "kode_barang": "88054",
             "h_member": 510000,
             "diskon": 20,
@@ -35,7 +35,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-06-01 - 2020-06-30",
+            "period": "2020-06-16 - 2020-06-30",
             "kode_barang": "88176",
             "h_member": 510000,
             "diskon": 20,
@@ -46,7 +46,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-06-01 - 2020-06-30",
+            "period": "2020-06-16 - 2020-06-30",
             "kode_barang": "88026",
             "h_member": 424000,
             "diskon": 20,
@@ -57,7 +57,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-06-01 - 2020-06-30",
+            "period": "2020-06-16 - 2020-06-30",
             "kode_barang": "88046",
             "h_member": 424000,
             "diskon": 25,
@@ -68,7 +68,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-06-01 - 2020-06-30",
+            "period": "2020-06-16 - 2020-06-30",
             "kode_barang": "88064",
             "h_member": 535000,
             "diskon": 25,
@@ -79,7 +79,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-06-01 - 2020-06-30",
+            "period": "2020-06-16 - 2020-06-30",
             "kode_barang": "88171",
             "h_member": 424000,
             "diskon": 25,
@@ -90,7 +90,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-06-01 - 2020-06-30",
+            "period": "2020-06-16 - 2020-06-30",
             "kode_barang": "88173",
             "h_member": 424000,
             "diskon": 25,
@@ -101,7 +101,7 @@
         },
         {
             "promo_type": "REGULAR",
-            "period": "2020-06-01 - 2020-06-30",
+            "period": "2020-06-16 - 2020-06-30",
             "kode_barang": "88136",
             "h_member": 424000,
             "diskon": 25,
